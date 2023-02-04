@@ -1,18 +1,154 @@
-<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
-<idea-plugin>
-    <id>com.github.imyuyu.filesyncplugin</id>
-    <name>FileSyncPlugin</name>
-    <vendor>imyuyu</vendor>
+<idea-plugin url="https://github.com/imyuyu/idea-plugin-remotesynchronizer">
+  <name>FileSync</name>
+  <!--<description>FileSync plugin allows you to synchronize project files with outside of project locations.
+    Instead of manually copying files from your project to other locations using external
+    tools (command line, file explorer, etc.), FileSync launches copies from your IDE, relying
+    on mappings defined for your project. It can also delete obsolete files on outside of project locations.
+  </description>-->
+  <version>1.14.2</version>
+  <vendor email="2075904@gmail.com" url="https://github.com/imyuyu">imyuyu</vendor>
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="201"/>
+  <depends>com.intellij.modules.lang</depends>
+  <depends optional="true" config-file="FileSync-java.xml">com.intellij.modules.java</depends>
 
-    <depends>com.intellij.modules.platform</depends>
+<!--<change-notes><![CDATA[<html>
+<b>1.14.2</b> (04/17/2022)
+  <ul>
+    <li>Feature: added support for IntelliJ IDEA 2020.x</a>
+  </ul>
+<b>1.14.1</b> (04/17/2022)
+  <ul>
+    <li>Optimize: words </a>
+  </ul>
+<b>1.14</b> (04/17/2022)
+  <ul>
+    <li>Feature: added support for IntelliJ IDEA 2022.1.</a>
+  </ul>
+ <b>1.13</b> (12/11/2021)
+  <ul>
+    <li>Feature: added support for IntelliJ IDEA 2021.2.</a>
+  </ul>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.imyuyu.filesyncplugin.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.imyuyu.filesyncplugin.services.MyProjectService"/>
-    </extensions>
+  <b>1.12</b> (01/31/2017)
+  <ul>
+    <li>Fix: <a href="https://github.com/syllant/idea-plugin-remotesynchronizer/issues/31">Fix a packaging issue causing class files not to be synchronized</a>
+  </ul>
 
-    <applicationListeners>
-        <listener class="com.github.imyuyu.filesyncplugin.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+  <b>1.11</b> (05/17/2016)
+  <ul>
+    <li>Fix: <a href="https://github.com/syllant/idea-plugin-remotesynchronizer/issues/18">Synchronization 'on save' causes entire IDE to hang</a>
+    <li>Fix: <a href="https://github.com/syllant/idea-plugin-remotesynchronizer/issues/26">Remove French translation</a>
+    <li>Fix: <a href="https://github.com/syllant/idea-plugin-remotesynchronizer/issues/28">Invalid expansion for $PROJECT_DIR$</a>
+  </ul>
+
+  <b>1.10</b> (03/20/2016)
+  <ul>
+    <li>Fix: <a href="https://github.com/syllant/idea-plugin-remotesynchronizer/issues/20">Support for IntelliJ 2016: preferences now displayed in the "Tools" group</a>
+    <li>Fix: <a href="https://github.com/syllant/idea-plugin-remotesynchronizer/issues/16">Remove default key shortcuts and let users define unused combinations!</a>
+  </ul>
+
+  <b>1.9.2</b> (02/19/2014)
+  <ul>
+    <li>Fix: <a href="https://github.com/syllant/idea-plugin-revu/issues/10">Support for 1.6 JVM</a>
+  </ul>
+
+  <b>1.9.1</b> (01/31/2014)
+  <ul>
+    <li>Fix: Fixed compatibility with products other than IDEA
+  </ul>
+
+  <b>1.9</b> (01/29/2014)
+  <ul>
+    <li>New: <a href="https://github.com/syllant/idea-plugin-remotesynchronizer/issues/8">New option "Synchronize on save"</a>
+  </ul>
+</html>]]></change-notes>-->
+
+  <applicationListeners>
+    <listener class="org.sylfra.idea.plugins.remotesynchronizer.ProjectOpenCloseListener"
+              topic="com.intellij.openapi.project.ProjectManagerListener"/>
+  </applicationListeners>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <projectService
+            serviceImplementation="org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigStateComponent"/>
+
+    <projectService
+            serviceInterface="org.sylfra.idea.plugins.remotesynchronizer.javasupport.IJavaSupport"
+            serviceImplementation="org.sylfra.idea.plugins.remotesynchronizer.javasupport.NoJavaSupport" />
+
+    <projectService
+            serviceImplementation="org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigExternalizer" />
+
+    <projectService
+            serviceImplementation="org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin" />
+    
+    <projectConfigurable id="FileSync"
+                         displayName="File Sync"
+                         groupId="tools"
+                         instance="org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin"/>
+  </extensions>
+
+  <!-- Component's actions -->
+  <actions>
+    <group id="FileSyncWindow" text="File Sync" popup="true">
+      <action id="FileSync.RerunLastSynchroAction"
+        class="org.sylfra.idea.plugins.remotesynchronizer.actions.toolbar.RerunLastSynchroAction"
+        text="Rerun last synchronization"
+        description="Rerun last synchronization"
+        icon="/actions/refreshUsages.png">
+      </action>
+      <action id="FileSync.ThreadStopAction"
+        class="org.sylfra.idea.plugins.remotesynchronizer.actions.toolbar.ThreadStopAction"
+        text="Stop remote synchronizing"
+        description="Stop remote synchronizing"
+        icon="/actions/suspend.png">
+      </action>
+      <action id="FileSync.ThreadInterruptAction"
+        class="org.sylfra.idea.plugins.remotesynchronizer.actions.toolbar.ThreadInterruptAction"
+        text="Interrupt remote synchronizing"
+        description="Interrupt remote synchronizing"
+        icon="/actions/pause.png">
+      </action>
+      <action id="FileSync.ThreadResumeAction"
+        class="org.sylfra.idea.plugins.remotesynchronizer.actions.toolbar.ThreadResumeAction"
+        text="Resume remote synchronizing"
+        description="Resume remote synchronizing"
+        icon="/actions/resume.png">
+      </action>
+      <action id="FileSync.ConsoleClearAction"
+        class="org.sylfra.idea.plugins.remotesynchronizer.actions.toolbar.ConsoleClearAction"
+        text="Clear console"
+        description="Clear console"
+        icon="/actions/gc.png">
+      </action>
+      <action id="FileSync.ConsoleRemoveAction"
+        class="org.sylfra.idea.plugins.remotesynchronizer.actions.toolbar.ConsoleRemoveAction"
+        text="Remove current tab"
+        description="Remove current tab"
+        icon="/general/remove.png">
+      </action>
+    </group>
+
+    <group id="FileSyncActions" text="File Sync" popup="true">
+      <action id="RemoteSynchronize.SynchronizeSelectedAction"
+        class="org.sylfra.idea.plugins.remotesynchronizer.actions.RemoteSynchronizeSelectedAction"
+        text="Synchronize this"
+        description="Do remote synchronization for selected files">
+      </action>
+      <action id="RemoteSynchronize.SynchronizeOpenedAction"
+        class="org.sylfra.idea.plugins.remotesynchronizer.actions.RemoteSynchronizeOpenedAction"
+        text="Synchronize all opened"
+        description="Do remote synchronization for all opened files">
+      </action>
+      <action id="RemoteSynchronize.SynchronizeAllAction"
+        class="org.sylfra.idea.plugins.remotesynchronizer.actions.RemoteSynchronizeAllAction"
+        text="Synchronize all"
+        description="Do remote synchronization for all project files">
+      </action>
+      <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+      <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+    </group>
+
+  </actions>
 </idea-plugin>

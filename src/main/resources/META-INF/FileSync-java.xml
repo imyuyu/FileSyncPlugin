@@ -1,0 +1,8 @@
+<idea-plugin>
+  <extensions defaultExtensionNs="com.intellij">
+    <projectService
+            serviceInterface="org.sylfra.idea.plugins.remotesynchronizer.javasupport.IJavaSupport"
+            overrides="true"
+            serviceImplementation="org.sylfra.idea.plugins.remotesynchronizer.javasupport.DefaultJavaSupport" />
+  </extensions>
+</idea-plugin>
