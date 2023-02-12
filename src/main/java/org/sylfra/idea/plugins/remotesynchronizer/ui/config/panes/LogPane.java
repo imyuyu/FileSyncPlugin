@@ -116,9 +116,9 @@ public final class LogPane extends JPanel implements IConfigPane
     cbFontSize = new ComboBox<>(FONT_SIZES);
 
     JPanel result = new JBPanel<>(new GridBagLayout());
-    /*result.setBorder(BorderFactory.createTitledBorder(
-      LabelsFactory.get(LabelsFactory.PANEL_FONT)));*/
-    result.setBorder(IdeBorderFactory.createTitledBorder(LabelsFactory.get(LabelsFactory.PANEL_FONT)));
+    result.setBorder(BorderFactory.createTitledBorder(
+      LabelsFactory.get(LabelsFactory.PANEL_FONT)));
+    //result.setBorder(IdeBorderFactory.createTitledBorder(LabelsFactory.get(LabelsFactory.PANEL_FONT)));
     GridBagConstraints c = new GridBagConstraints();
 
   // Font family
