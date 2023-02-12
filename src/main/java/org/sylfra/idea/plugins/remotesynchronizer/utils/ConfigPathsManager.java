@@ -115,7 +115,7 @@ public class ConfigPathsManager
     VirtualFile[] vf = ProjectRootManager.getInstance(plugin.getProject())
       .getContentRoots();
 
-    return (vf.length == 0) ? plugin.getProject().getBaseDir() : vf[0];
+    return (vf.length == 0) ? plugin.getProjectBaseDir() : vf[0];
   }
 
   public boolean isExcludedFromCopy(TargetMappings target, String path)
@@ -270,7 +270,7 @@ public class ConfigPathsManager
   {
     if (path.startsWith(PathsUtils.PATTERN_PROJECT_DIR))
     {
-      path = plugin.getProject().getBaseDir().getPresentableUrl()
+      path = plugin.getProjectBaseDir().getPresentableUrl()
         + path.substring(PATTERN_PROJECT_DIR_LENGTH);
       try
       {

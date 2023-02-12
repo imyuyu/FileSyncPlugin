@@ -8,7 +8,7 @@ import com.intellij.openapi.components.Storage;
 import com.intellij.openapi.components.StoragePathMacros;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
-import com.intellij.openapi.fileEditor.FileDocumentManagerAdapter;
+import com.intellij.openapi.fileEditor.FileDocumentManagerListener;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectFileIndex;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -44,7 +44,7 @@ public class ConfigStateComponent implements PersistentStateComponent<Config>
     // different projects, which is fine
     MessageBusConnection connection = ApplicationManager.getApplication().getMessageBus().connect();
     connection.subscribe(AppTopics.FILE_DOCUMENT_SYNC,
-      new FileDocumentManagerAdapter()
+      new FileDocumentManagerListener()
       {
         @Override
         public void beforeDocumentSaving(@NotNull Document document)
@@ -55,7 +55,7 @@ public class ConfigStateComponent implements PersistentStateComponent<Config>
           if (config.getGeneralOptions().isCopyOnSave())
           {
             VirtualFile vFile = FileDocumentManager.getInstance().getFile(document);
-            if ((vFile != null) && ProjectFileIndex.SERVICE.getInstance(project).isInContent(vFile))
+            if ((vFile != null) && ProjectFileIndex.getInstance(project).isInContent(vFile))
             {
               FileSyncPlugin.getInstance(project).launchSyncIfAllowed(new VirtualFile[]{vFile});
             }

@@ -1,9 +1,12 @@
 package org.sylfra.idea.plugins.remotesynchronizer;
 
+import com.intellij.openapi.components.ServiceKt;
+import com.intellij.openapi.components.impl.stores.IProjectStore;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ToolWindowManager;
@@ -22,6 +25,7 @@ import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigStateComponent;
 
 import javax.swing.*;
 import java.net.URL;
+import java.util.Objects;
 
 /**
  * Plugin main class
@@ -67,6 +71,14 @@ public class FileSyncPlugin implements Configurable
   public Project getProject()
   {
     return project;
+  }
+
+  public VirtualFile getProjectBaseDir(){
+    IProjectStore projectStore = (IProjectStore) ServiceKt.getStateStore(project);
+
+    VirtualFile projectDir = VirtualFileManager.getInstance().findFileByNioPath(projectStore.getProjectBasePath());
+
+    return projectDir;
   }
 
   public Config getConfig()
@@ -137,25 +149,11 @@ public class FileSyncPlugin implements Configurable
 
   public void projectOpened()
   {
-    initToolWindow();
+
   }
 
   public void projectClosed()
   {
-  }
-
-  private void initToolWindow()
-  {
-    ToolWindowManager toolWindowManager = ToolWindowManager.getInstance(project);
-    toolWindowManager.invokeLater(() -> {
-      ToolWindow toolwindow = toolWindowManager.registerToolWindow(PLUGIN_NAME, true, ToolWindowAnchor.BOTTOM);
-      ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
-      Content content = contentFactory.createContent(new ToolPanel(consolePane, getConfig()),
-              PLUGIN_NAME + " Console", true);
-      toolwindow.getContentManager().addContent(content);
-
-      toolwindow.setIcon(new ImageIcon(getResource("logo-small.png")));
-    });
   }
 
   public static FileSyncPlugin getInstance(Project project)
@@ -191,7 +189,7 @@ public class FileSyncPlugin implements Configurable
   public void launchSyncIfAllowed(VirtualFile[] files)
   {
     // Check if configuration allows concurrent runs when a synchro is running
-    if ((!getStateComponent().getState().getGeneralOptions().isAllowConcurrentRuns())
+    if ((!Objects.requireNonNull(getStateComponent().getState()).getGeneralOptions().isAllowConcurrentRuns())
       && (copierThreadManager.hasRunningSynchro()))
     {
       consolePane.doPopup();

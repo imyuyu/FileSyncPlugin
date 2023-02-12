@@ -1,6 +1,7 @@
 package org.sylfra.idea.plugins.remotesynchronizer.ui.config;
 
 import com.intellij.ide.plugins.PluginManager;
+import com.intellij.ide.plugins.PluginManagerCore;
 import com.intellij.openapi.extensions.PluginId;
 import com.intellij.openapi.project.Project;
 import com.intellij.ui.components.JBLabel;
@@ -16,6 +17,7 @@ import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 /**
  * Configuration panel
@@ -97,7 +99,7 @@ public class ConfigPanel extends JPanel
     JPanel panel = new JPanel(new BorderLayout());
     panel.add(pnImportExport, BorderLayout.CENTER);
     panel.add(new JBLabel("version " +
-      PluginManager.getPlugin(PluginId.getId(FileSyncPlugin.PLUGIN_NAME)).getVersion()),
+      Objects.requireNonNull(PluginManagerCore.getPlugin(PluginId.getId(FileSyncPlugin.PLUGIN_NAME))).getVersion()),
       BorderLayout.EAST);
     return panel;
   }

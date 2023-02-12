@@ -4,6 +4,7 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.fileChooser.FileChooser;
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectUtil;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -280,7 +281,7 @@ public class ActionsHolder
       if (fileChooser == null)
       {
         fileChooser = new JFileChooser();
-        fileChooser.setSelectedFile(new File(project.getBaseDir().getPath(),
+        fileChooser.setSelectedFile(new File(ProjectUtil.guessProjectDir(project).getPath(),
           project.getName() + "-FileSync.xml"));
         fileChooser.setFileFilter(new FileFilter()
         {
@@ -343,7 +344,7 @@ public class ActionsHolder
       Project project = configPanel.getCurrentProject();
       if (selectedFile == null)
       {
-        selectedFile = project.getBaseDir();
+        selectedFile = ProjectUtil.guessProjectDir(project);
       }
 
       VirtualFile[] virtualFiles =

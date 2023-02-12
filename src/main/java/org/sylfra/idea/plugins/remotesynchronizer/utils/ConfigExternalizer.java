@@ -10,10 +10,7 @@ import org.jdom.JDOMException;
 import org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin;
 import org.sylfra.idea.plugins.remotesynchronizer.model.Config;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
+import java.io.*;
 
 /**
  *
@@ -31,27 +28,18 @@ public class ConfigExternalizer
   {
     Config config = FileSyncPlugin.getInstance(project).getConfig();
 
-    Element element = XmlSerializer.serialize(config, new SkipDefaultValuesSerializationFilters());
+    Element element = XmlSerializer.serialize(config);
     Document document = new Document(element);
 
-    OutputStreamWriter writer = null;
-    try
+    try(OutputStream stream = new FileOutputStream(dest))
     {
-      writer = new OutputStreamWriter(new FileOutputStream(dest), "UTF-8");
-      JDOMUtil.writeDocument(document, writer, System.getProperty("line.separator"));
-    }
-    finally
-    {
-      if (writer != null)
-      {
-        writer.close();
-      }
+      JDOMUtil.writeDocument(document, stream, System.getProperty("line.separator"));
     }
   }
 
   public void read(File src) throws IOException, JDOMException
   {
-    Document document = JDOMUtil.loadDocument(src);
+    Element document = JDOMUtil.load(src.toPath());
     Config config = XmlSerializer.deserialize(document, Config.class);
     FileSyncPlugin.getInstance(project).getStateComponent().loadState(config);
   }

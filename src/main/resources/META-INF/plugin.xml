@@ -82,7 +82,10 @@
 
     <projectService
             serviceImplementation="org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin" />
-    
+
+    <toolWindow id="FileSync" anchor="bottom" doNotActivateOnStart="true" icon="/org/sylfra/idea/plugins/remotesynchronizer/resources/logo-small.png"
+                factoryClass="org.sylfra.idea.plugins.remotesynchronizer.ui.ThreadConsoleToolWindowFactory"/>
+
     <projectConfigurable id="FileSync"
                          displayName="File Sync"
                          groupId="tools"

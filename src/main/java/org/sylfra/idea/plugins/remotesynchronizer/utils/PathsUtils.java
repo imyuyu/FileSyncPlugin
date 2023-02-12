@@ -1,9 +1,13 @@
 package org.sylfra.idea.plugins.remotesynchronizer.utils;
 
+import com.intellij.openapi.components.ServiceKt;
+import com.intellij.openapi.components.impl.stores.IComponentStore;
+import com.intellij.openapi.components.impl.stores.IProjectStore;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VfsUtil;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.vfs.VirtualFileManager;
 
 import java.io.File;
 
@@ -78,7 +82,9 @@ public class PathsUtils
 
   public static String getRelativePath(Project project, String path)
   {
-    VirtualFile projectDir = project.getBaseDir();
+    IProjectStore projectStore = (IProjectStore) ServiceKt.getStateStore(project);
+
+    VirtualFile projectDir = VirtualFileManager.getInstance().findFileByNioPath(projectStore.getProjectBasePath());
 
     path = path.replace(PATTERN_PROJECT_DIR, projectDir.getPath());
 

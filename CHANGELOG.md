@@ -9,6 +9,11 @@
 
 ## [Unreleased]
 
+## [1.14.3] - 2023-02-12
+
+### Added
+- Feature: added support for IntelliJ IDEA 2022.2.
+
 ## [1.14.2] - 2023-02-04
 
 ### Added
