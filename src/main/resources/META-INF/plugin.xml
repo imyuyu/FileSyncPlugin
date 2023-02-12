@@ -5,10 +5,10 @@
     tools (command line, file explorer, etc.), FileSync launches copies from your IDE, relying
     on mappings defined for your project. It can also delete obsolete files on outside of project locations.
   </description>-->
-  <version>1.14.2</version>
+  <!--<version>1.14.2</version>-->
   <vendor email="2075904@gmail.com" url="https://github.com/imyuyu">imyuyu</vendor>
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-  <idea-version since-build="201"/>
+  <!--<idea-version since-build="201"/>-->
   <depends>com.intellij.modules.lang</depends>
   <depends optional="true" config-file="FileSync-java.xml">com.intellij.modules.java</depends>
 
