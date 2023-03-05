@@ -1,6 +1,7 @@
 package org.sylfra.idea.plugins.remotesynchronizer.ui.dialogs;
 
 import com.intellij.openapi.ui.Messages;
+import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin;
 import org.sylfra.idea.plugins.remotesynchronizer.model.SynchroMapping;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;
@@ -15,8 +16,8 @@ import java.awt.*;
  */
 public class SynchroMappingDialog extends AbstractPathDialog
 {
-  private JTextField tfSrcPath;
-  private JTextField tfDestPath;
+  private TextFieldWithBrowseButton tfSrcPath;
+  private TextFieldWithBrowseButton tfDestPath;
   private JCheckBox ckDeleteObsolete;
 
   public SynchroMappingDialog(ConfigPathsManager pathManager, Object defaultValue)
@@ -111,12 +112,12 @@ public class SynchroMappingDialog extends AbstractPathDialog
     c.insets = new Insets(0, 5, 0, 5);
     panel.add(tfSrcPath, c);
 
-    c.gridx++;
+    /*c.gridx++;
     c.weightx = 0.0;
     c.fill = GridBagConstraints.NONE;
     c.insets = new Insets(0, 0, 0, 5);
     JButton bnBrowse = createBrowseButton(tfSrcPath, false);
-    panel.add(bnBrowse, c);
+    panel.add(bnBrowse, c);*/
 
     c.gridx = 0;
     c.gridy++;
@@ -130,12 +131,12 @@ public class SynchroMappingDialog extends AbstractPathDialog
     c.insets = new Insets(0, 5, 0, 5);
     panel.add(tfDestPath, c);
 
-    c.gridx++;
+    /*c.gridx++;
     c.weightx = 0.0;
     c.fill = GridBagConstraints.NONE;
     c.insets = new Insets(0, 0, 0, 5);
     bnBrowse = createBrowseButton(tfDestPath, false);
-    panel.add(bnBrowse, c);
+    panel.add(bnBrowse, c);*/
 
     c.gridx = 0;
     c.gridy++;

@@ -1,5 +1,7 @@
 package org.sylfra.idea.plugins.remotesynchronizer.ui.config;
 
+import com.intellij.ui.IdeBorderFactory;
+import com.intellij.ui.components.JBTabbedPane;
 import org.sylfra.idea.plugins.remotesynchronizer.model.Config;
 import org.sylfra.idea.plugins.remotesynchronizer.model.TargetMappings;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;

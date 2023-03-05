@@ -1,6 +1,7 @@
 package org.sylfra.idea.plugins.remotesynchronizer.ui.dialogs;
 
 import com.intellij.openapi.ui.Messages;
+import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
@@ -13,7 +14,7 @@ import java.awt.*;
  */
 public abstract class ExcludedPathDialog extends AbstractPathDialog
 {
-  private JTextField tfPath;
+  private TextFieldWithBrowseButton tfPath;
   private String label;
 
   public ExcludedPathDialog(ConfigPathsManager pathManager, Object defaultValue,
@@ -74,12 +75,12 @@ public abstract class ExcludedPathDialog extends AbstractPathDialog
     c.insets = new Insets(0, 5, 0, 5);
     panel.add(tfPath, c);
 
-    c.gridx++;
+    /*c.gridx++;
     c.weightx = 0.0;
     c.fill = c.NONE;
     c.insets = new Insets(0, 0, 0, 5);
     JButton bnBrowse = createBrowseButton(tfPath, true);
-    panel.add(bnBrowse, c);
+    panel.add(bnBrowse, c);*/
 
     return panel;
   }

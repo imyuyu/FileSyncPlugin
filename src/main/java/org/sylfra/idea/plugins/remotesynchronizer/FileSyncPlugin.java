@@ -30,7 +30,7 @@ import java.util.Objects;
 /**
  * Plugin main class
  */
-public class FileSyncPlugin implements Configurable
+public class FileSyncPlugin
 {
   public static final String PLUGIN_NAME = "FileSync";
 
@@ -49,8 +49,7 @@ public class FileSyncPlugin implements Configurable
   private SynchronizerThreadManager copierThreadManager;
   // Contains different consoles
   private ThreadConsolePane consolePane;
-  // Settings panel
-  private ConfigPanel panel;
+
   private IJavaSupport javaSupport;
 
   public FileSyncPlugin(Project project)
@@ -101,51 +100,11 @@ public class FileSyncPlugin implements Configurable
     return consolePane;
   }
 
-  public String getDisplayName()
-  {
-    return PLUGIN_NAME;
-  }
-
   public Icon getIcon()
   {
     return new ImageIcon(getResource("logo-big.png"));
   }
 
-  public String getHelpTopic()
-  {
-    return null;
-  }
-
-  public JComponent createComponent()
-  {
-    panel = new ConfigPanel(this);
-
-    return panel;
-  }
-
-  public boolean isModified()
-  {
-    return panel.isModified(getConfig());
-  }
-
-  public void apply()
-    throws ConfigurationException
-  {
-    Config config = getConfig();
-
-    panel.apply(config);
-    config.fireConfigChanged();
-  }
-
-  public void reset()
-  {
-    panel.reset(getConfig());
-  }
-
-  public void disposeUIResources()
-  {
-    panel = null;
-  }
 
   public void projectOpened()
   {

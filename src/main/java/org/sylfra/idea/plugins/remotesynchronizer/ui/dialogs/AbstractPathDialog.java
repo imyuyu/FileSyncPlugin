@@ -4,7 +4,9 @@ import com.intellij.openapi.Disposable;
 import com.intellij.openapi.fileChooser.FileChooser;
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import com.intellij.openapi.fileChooser.FileChooserFactory;
+import com.intellij.openapi.fileChooser.FileTextField;
 import com.intellij.openapi.ui.DialogWrapper;
+import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.PathsUtils;
@@ -38,20 +40,13 @@ public abstract class AbstractPathDialog extends DialogWrapper implements Dispos
     updateDialogFromValue();
   }
 
-  protected JTextField createTextField()
+  protected TextFieldWithBrowseButton createTextField()
   {
-    JTextField result = FileChooserFactory.getInstance().createFileTextField(fcDescriptor,
-            false, this).getField();
-    result.setColumns(TEXT_SIZE);
-    result.addActionListener(new ActionListener()
-    {
-      public void actionPerformed(final ActionEvent e)
-      {
-        doOKAction();
-      }
-    });
-
-    return result;
+    TextFieldWithBrowseButton browseButton = new TextFieldWithBrowseButton(null, this);
+    browseButton.addBrowseFolderListener(null, null, pathManager.getPlugin().getProject(), fcDescriptor);
+    browseButton.getTextField().setColumns(TEXT_SIZE);
+    browseButton.getTextField().addActionListener(e -> doOKAction());
+    return browseButton;
   }
 
   protected String formatInputPath(String path)
@@ -78,7 +73,7 @@ public abstract class AbstractPathDialog extends DialogWrapper implements Dispos
     return result;
   }
 
-  protected JButton createBrowseButton(final JTextField textField, final boolean useAntPattern)
+  protected JButton createBrowseButton(final TextFieldWithBrowseButton textField, final boolean useAntPattern)
   {
     JButton button = new JButton("...");
     button.setPreferredSize(new Dimension(20,

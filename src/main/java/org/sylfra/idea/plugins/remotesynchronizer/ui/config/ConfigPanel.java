@@ -31,7 +31,8 @@ public class ConfigPanel extends JPanel
   {
     configPanes = new IConfigPane[]{
       new TargetsPane(plugin.getPathManager()),
-      new GeneralPane(plugin.getProject(), plugin.getPathManager()), new LogPane()
+      new GeneralPane(plugin.getProject(), plugin.getPathManager()),
+      new LogPane()
     };
 
     buildUI(plugin.getPathManager());

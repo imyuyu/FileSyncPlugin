@@ -9,6 +9,12 @@
 
 ## [Unreleased]
 
+## [1.14.4] - 2023-02-12
+
+### Changed
+- `ProjectManagerListener#projectOpened` change to `com.intellij.postStartupActivity` extension
+- Feature: installing, updating, and uninstalling plugins without restarting the IDE
+
 ## [1.14.3] - 2023-02-12
 
 ### Added
@@ -67,7 +73,9 @@
 ### Added
 - [New option "Synchronize on save"](https://github.com/syllant/idea-plugin-remotesynchronizer/issues/8)
 
-[Unreleased]: https://github.com/imyuyu/idea-plugin-remotesynchronizer/compare/v1.14.2...HEAD
+[Unreleased]: https://github.com/imyuyu/idea-plugin-remotesynchronizer/compare/v1.14.3...HEAD
+
+[1.14.3]: https://github.com/imyuyu/idea-plugin-remotesynchronizer/compare/v1.14.2...v1.14.3
 
 [1.14.2]: https://github.com/imyuyu/idea-plugin-remotesynchronizer/compare/v1.14.1...v1.14.2
 
@@ -88,3 +96,53 @@
 [1.9.1]: https://github.com/imyuyu/idea-plugin-remotesynchronizer/compare/v1.9.0...v1.9.1
 
 [1.9.0]: https://github.com/imyuyu/idea-plugin-remotesynchronizer/commits/v1.9.0
+
+[Unreleased]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.14.3...HEAD
+
+[1.14.3]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.14.2...v1.14.3
+
+[1.14.2]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.14.1...v1.14.2
+
+[1.14.1]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.14.0...v1.14.1
+
+[1.14.0]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.13.0...v1.14.0
+
+[1.13.0]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.12.0...v1.13.0
+
+[1.12.0]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.11.0...v1.12.0
+
+[1.11.0]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.10.0...v1.11.0
+
+[1.10.0]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.9.2...v1.10.0
+
+[1.9.2]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.9.1...v1.9.2
+
+[1.9.1]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.9.0...v1.9.1
+
+[1.9.0]: https://github.com/imyuyu/FileSyncPlugin/commits/v1.9.0
+
+[Unreleased]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.14.3...HEAD
+
+[1.14.4]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.14.2...v1.14.4
+
+[1.14.3]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.14.4...v1.14.3
+
+[1.14.2]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.14.1...v1.14.2
+
+[1.14.1]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.14.0...v1.14.1
+
+[1.14.0]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.13.0...v1.14.0
+
+[1.13.0]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.12.0...v1.13.0
+
+[1.12.0]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.11.0...v1.12.0
+
+[1.11.0]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.10.0...v1.11.0
+
+[1.10.0]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.9.2...v1.10.0
+
+[1.9.2]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.9.1...v1.9.2
+
+[1.9.1]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.9.0...v1.9.1
+
+[1.9.0]: https://github.com/imyuyu/FileSyncPlugin/commits/v1.9.0

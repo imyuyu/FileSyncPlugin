@@ -1,4 +1,4 @@
-<idea-plugin url="https://github.com/imyuyu/idea-plugin-remotesynchronizer">
+<idea-plugin url="https://github.com/imyuyu/FileSyncPlugin">
   <name>FileSync</name>
   <!--<description>FileSync plugin allows you to synchronize project files with outside of project locations.
     Instead of manually copying files from your project to other locations using external
@@ -67,15 +67,14 @@
   <applicationListeners>
     <listener class="org.sylfra.idea.plugins.remotesynchronizer.ProjectOpenCloseListener"
               topic="com.intellij.openapi.project.ProjectManagerListener"/>
+
+    <listener class="org.sylfra.idea.plugins.remotesynchronizer.ProjectDynamicPluginListener"
+              topic="com.intellij.ide.plugins.DynamicPluginListener" />
   </applicationListeners>
 
   <extensions defaultExtensionNs="com.intellij">
     <projectService
             serviceImplementation="org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigStateComponent"/>
-
-    <projectService
-            serviceInterface="org.sylfra.idea.plugins.remotesynchronizer.javasupport.IJavaSupport"
-            serviceImplementation="org.sylfra.idea.plugins.remotesynchronizer.javasupport.NoJavaSupport" />
 
     <projectService
             serviceImplementation="org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigExternalizer" />
@@ -88,8 +87,11 @@
 
     <projectConfigurable id="FileSync"
                          displayName="File Sync"
+                         dynamic="true"
                          groupId="tools"
-                         instance="org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin"/>
+                         instance="org.sylfra.idea.plugins.remotesynchronizer.FileSyncConfigurable"/>
+
+    <postStartupActivity implementation="org.sylfra.idea.plugins.remotesynchronizer.ProjectStartupActivity" />
   </extensions>
 
   <!-- Component's actions -->

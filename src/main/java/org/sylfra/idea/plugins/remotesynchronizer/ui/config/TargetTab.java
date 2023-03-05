@@ -1,9 +1,13 @@
 package org.sylfra.idea.plugins.remotesynchronizer.ui.config;
 
+import com.intellij.ui.Gray;
+import com.intellij.ui.IdeBorderFactory;
+import com.intellij.ui.JBColor;
 import com.intellij.ui.components.JBCheckBox;
 import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBPanel;
 import com.intellij.ui.components.JBScrollPane;
+import com.intellij.util.ui.JBUI;
 import org.sylfra.idea.plugins.remotesynchronizer.model.Config;
 import org.sylfra.idea.plugins.remotesynchronizer.model.SynchroMapping;
 import org.sylfra.idea.plugins.remotesynchronizer.model.TargetMappings;
@@ -19,6 +23,7 @@ import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
@@ -175,7 +180,9 @@ public class TargetTab extends JPanel
     pnButtons.add(bnRemove);
 
     JPanel pnMain = new JBPanel<>(new BorderLayout());
-    pnMain.setBorder(BorderFactory.createTitledBorder(title));
+    TitledBorder titledBorder = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(JBColor.namedColor("Group.separatorColor", new JBColor(Gray.xCD, Gray.x51))), title);
+    pnMain.setBorder(titledBorder);
+    //pnMain.setBorder(IdeBorderFactory.createTitledBorder(title, false, JBUI.insetsRight(10)));
     pnMain.add(pnTable, BorderLayout.CENTER);
     pnMain.add(pnButtons, BorderLayout.EAST);
 
