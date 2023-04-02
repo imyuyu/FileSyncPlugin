@@ -1,5 +1,6 @@
 package org.sylfra.idea.plugins.remotesynchronizer.ui.config;
 
+import com.intellij.icons.AllIcons;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.fileChooser.FileChooser;
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
@@ -187,9 +188,7 @@ public class ActionsHolder
   {
     public AddTabAction(TargetTabbedPane targetTabs)
     {
-      super(LabelsFactory.get(LabelsFactory.BN_ADD_TARGET),
-        new ImageIcon(FileSyncPlugin.class.getClassLoader()
-          .getResource("general/add.png")),
+      super(LabelsFactory.get(LabelsFactory.BN_ADD_TARGET), AllIcons.General.Add,
         targetTabs);
     }
 
@@ -208,8 +207,7 @@ public class ActionsHolder
     public RemoveTabAction(TargetTabbedPane targetTabs)
     {
       super(LabelsFactory.get(LabelsFactory.BN_REMOVE_TARGET),
-        new ImageIcon(FileSyncPlugin.class.getClassLoader()
-          .getResource("general/remove.png")),
+              AllIcons.General.Remove,
         targetTabs);
     }
 
@@ -249,7 +247,7 @@ public class ActionsHolder
     public MoveTabToRightAction(TargetTabbedPane targetTabs)
     {
       super(LabelsFactory.get(LabelsFactory.BN_MOVE_TARGET_TO_RIGHT),
-              FileSyncIcons.TO_LEFT_ICON,
+              FileSyncIcons.TO_RIGHT_ICON,
         targetTabs);
     }
 
