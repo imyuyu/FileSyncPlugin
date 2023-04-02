@@ -3,13 +3,13 @@ package org.sylfra.idea.plugins.remotesynchronizer.synchronizing;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.wm.ToolWindowManager;
-import org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin;
+import org.imyuyu.idea.plugins.filesync.FileSyncPlugin;
 import org.sylfra.idea.plugins.remotesynchronizer.model.SynchroMapping;
 import org.sylfra.idea.plugins.remotesynchronizer.model.SyncronizingStatsInfo;
 import org.sylfra.idea.plugins.remotesynchronizer.model.TargetMappings;
 import org.sylfra.idea.plugins.remotesynchronizer.ui.ThreadConsole;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;
-import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
+import org.imyuyu.idea.plugins.filesync.utils.LabelsFactory;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.PathsUtils;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.Utils;
 
@@ -225,7 +225,7 @@ public class SynchronizerThread
     if (files == null)
       return;
 
-    ConfigPathsManager pathManager = plugin.getPathManager();
+    ConfigPathsManager pathManager = plugin.pathManager;
     for (VirtualFile f : files)
     {
       if (f.isDirectory())
@@ -241,7 +241,7 @@ public class SynchronizerThread
 
         if (pathManager.isJavaSource(f))
         {
-          List<String> classFilePaths = plugin.getJavaSupport().getClassFilePaths(f);
+          List<String> classFilePaths = plugin.javaSupport.getClassFilePaths(f);
           if (classFilePaths != null)
           {
             for (String path : classFilePaths)
@@ -286,7 +286,7 @@ public class SynchronizerThread
     {
       if (p.isDeleteObsoleteFiles())
       {
-        String destPath = plugin.getPathManager().expandPath(p.getDestPath(), false);
+        String destPath = plugin.pathManager.expandPath(p.getDestPath(), false);
         pushFilesToDelete(new File(destPath));
       }
     }
@@ -300,7 +300,7 @@ public class SynchronizerThread
     if (!destFile.exists())
       return;
 
-    String srcPath = plugin.getPathManager()
+    String srcPath = plugin.pathManager
       .getSrcPath(targetMappings, PathsUtils.toModelPath(destFile));
 
     if (srcPath != null)
@@ -308,7 +308,7 @@ public class SynchronizerThread
       File srcFile = new File(srcPath);
 
       if (((!srcFile.exists())
-        || (plugin.getPathManager().isExcludedFromCopy(targetMappings, srcPath)))
+        || (plugin.pathManager.isExcludedFromCopy(targetMappings, srcPath)))
         && (isContainedInSelection(srcPath))
         && (!filesToDelete.contains(destFile)))
       {
@@ -334,7 +334,7 @@ public class SynchronizerThread
   {
     for (VirtualFile file : selectedFiles)
     {
-      if (plugin.getPathManager().isRelativePath(file.getPath(), path))
+      if (plugin.pathManager.isRelativePath(file.getPath(), path))
       {
         return true;
       }
@@ -379,7 +379,7 @@ public class SynchronizerThread
    */
   private void copyFile(String srcPath, SyncronizingStatsInfo statsInfo)
   {
-    ConfigPathsManager pathsManager = plugin.getPathManager();
+    ConfigPathsManager pathsManager = plugin.pathManager;
     String destPath = pathsManager.getRemotePath(targetMappings, srcPath);
 
     // Destination path not found
@@ -476,7 +476,7 @@ public class SynchronizerThread
     if (statsInfo.hasFailures())
     {
       final ToolWindowManager twManager = ToolWindowManager
-        .getInstance(plugin.getProject());
+        .getInstance(plugin.project);
       twManager.invokeLater(new Runnable()
       {
         public void run()

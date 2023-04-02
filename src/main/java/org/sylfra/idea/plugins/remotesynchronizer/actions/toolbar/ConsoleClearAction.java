@@ -2,7 +2,7 @@ package org.sylfra.idea.plugins.remotesynchronizer.actions.toolbar;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin;
+import org.imyuyu.idea.plugins.filesync.FileSyncPlugin;
 import org.sylfra.idea.plugins.remotesynchronizer.ui.ThreadConsole;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.Utils;
 
@@ -13,7 +13,7 @@ public class ConsoleClearAction extends AnAction
 {
   public void actionPerformed(AnActionEvent e)
   {
-    ThreadConsole currentConsole = Utils.getPlugin(e).getConsolePane()
+    ThreadConsole currentConsole = Utils.getPlugin(e).consolePane
       .getCurrentConsole();
     if (currentConsole != null)
       currentConsole.clear();
@@ -23,7 +23,7 @@ public class ConsoleClearAction extends AnAction
   {
     FileSyncPlugin plugin = Utils.getPlugin(e);
     e.getPresentation().setEnabled((plugin != null)
-      && (plugin.getConsolePane().getCurrentConsole() != null)
-      && (!plugin.getConsolePane().getCurrentConsole().isCleared()));
+      && (plugin.consolePane.getCurrentConsole() != null)
+      && (!plugin.consolePane.getCurrentConsole().isCleared()));
   }
 }

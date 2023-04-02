@@ -8,13 +8,14 @@ import com.intellij.openapi.project.ProjectUtil;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.vfs.VirtualFile;
-import org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin;
+import icons.FileSyncIcons;
+import org.imyuyu.idea.plugins.filesync.FileSyncPlugin;
 import org.sylfra.idea.plugins.remotesynchronizer.ui.dialogs.AbstractPathDialog;
 import org.sylfra.idea.plugins.remotesynchronizer.ui.dialogs.PathDialogFactory;
 import org.sylfra.idea.plugins.remotesynchronizer.ui.dialogs.SynchroMappingDialog;
 import org.sylfra.idea.plugins.remotesynchronizer.ui.tables.AbstractPathTable;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;
-import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
+import org.imyuyu.idea.plugins.filesync.utils.LabelsFactory;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -228,7 +229,7 @@ public class ActionsHolder
     public MoveTabToLeftAction(TargetTabbedPane targetTabs)
     {
       super(LabelsFactory.get(LabelsFactory.BN_MOVE_TARGET_TO_LEFT),
-        new ImageIcon(FileSyncPlugin.getResource("left.png")),
+              FileSyncIcons.TO_LEFT_ICON,
         targetTabs);
     }
 
@@ -248,7 +249,7 @@ public class ActionsHolder
     public MoveTabToRightAction(TargetTabbedPane targetTabs)
     {
       super(LabelsFactory.get(LabelsFactory.BN_MOVE_TARGET_TO_RIGHT),
-        new ImageIcon(FileSyncPlugin.getResource("right.png")),
+              FileSyncIcons.TO_LEFT_ICON,
         targetTabs);
     }
 

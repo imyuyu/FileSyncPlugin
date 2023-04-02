@@ -2,7 +2,7 @@ package org.sylfra.idea.plugins.remotesynchronizer.ui.tables;
 
 import org.sylfra.idea.plugins.remotesynchronizer.model.SynchroMapping;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;
-import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
+import org.imyuyu.idea.plugins.filesync.utils.LabelsFactory;
 
 /**
  * Contains 2 columns for included paths : source path and destination path

@@ -9,7 +9,18 @@
 
 ## [Unreleased]
 
-## [1.14.4] - 2023-02-12
+## [1.14.5] - 2023-04-02
+
+### Fixed
+- setting fails to open
+
+### Added
+- Feature: chinese support （80%）
+
+### Changed
+- Use kotlin rewrite part of the code
+
+## [1.14.4] - 2023-03-05
 
 ### Changed
 - `ProjectManagerListener#projectOpened` change to `com.intellij.postStartupActivity` extension

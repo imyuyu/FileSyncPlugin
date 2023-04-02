@@ -6,7 +6,7 @@ import org.sylfra.idea.plugins.remotesynchronizer.model.Config;
 import org.sylfra.idea.plugins.remotesynchronizer.model.SynchroMapping;
 import org.sylfra.idea.plugins.remotesynchronizer.model.TargetMappings;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;
-import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
+import org.imyuyu.idea.plugins.filesync.utils.LabelsFactory;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.PathsUtils;
 
 import javax.swing.*;

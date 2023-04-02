@@ -1,7 +1,7 @@
 package org.sylfra.idea.plugins.remotesynchronizer.ui.tables;
 
 import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;
-import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
+import org.imyuyu.idea.plugins.filesync.utils.LabelsFactory;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.PathsUtils;
 
 import javax.swing.*;
@@ -168,7 +168,7 @@ public class AbstractPathTable extends JTable
       String path = PathsUtils.toModelPath(result.getText());
       if (pathManager.getPlugin().getConfig().getGeneralOptions().isStoreRelativePaths())
       {
-        path = PathsUtils.getRelativePath(pathManager.getPlugin().getProject(), path);
+        path = PathsUtils.getRelativePath(pathManager.getPlugin().project, path);
       }
       else
       {
@@ -208,7 +208,7 @@ public class AbstractPathTable extends JTable
       String presentablePath;
       if (pathManager.getPlugin().getConfig().getGeneralOptions().isStoreRelativePaths())
       {
-        presentablePath = PathsUtils.getRelativePath(pathManager.getPlugin().getProject(), path);
+        presentablePath = PathsUtils.getRelativePath(pathManager.getPlugin().project, path);
       }
       else
       {

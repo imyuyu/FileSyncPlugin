@@ -1,7 +1,7 @@
 package org.sylfra.idea.plugins.remotesynchronizer.synchronizing;
 
 import com.intellij.openapi.vfs.VirtualFile;
-import org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin;
+import org.imyuyu.idea.plugins.filesync.FileSyncPlugin;
 import org.sylfra.idea.plugins.remotesynchronizer.model.Config;
 import org.sylfra.idea.plugins.remotesynchronizer.model.ConfigListener;
 import org.sylfra.idea.plugins.remotesynchronizer.model.TargetMappings;
@@ -60,7 +60,7 @@ public class SynchronizerThreadManager
       return result;
 
     result = new SynchronizerThread(plugin, target);
-    plugin.getConsolePane().createConsole(plugin, result, true);
+    plugin.consolePane.createConsole(plugin, result, true);
     threads.add(result);
 
     return result;
@@ -107,7 +107,7 @@ public class SynchronizerThreadManager
   private void updateThreads()
   {
     List<SynchronizerThread> newThreads = new ArrayList<SynchronizerThread>();
-    ThreadConsolePane consolePane = plugin.getConsolePane();
+    ThreadConsolePane consolePane = plugin.consolePane;
     Component selectedTab = consolePane.getSelectedComponent();
     consolePane.removeAll();
 

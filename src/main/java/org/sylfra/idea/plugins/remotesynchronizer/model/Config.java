@@ -1,6 +1,6 @@
 package org.sylfra.idea.plugins.remotesynchronizer.model;
 
-import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
+import org.imyuyu.idea.plugins.filesync.utils.LabelsFactory;
 
 import java.io.Serializable;
 import java.util.ArrayList;

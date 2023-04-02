@@ -5,7 +5,7 @@ import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.roots.CompilerModuleExtension;
 import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.openapi.vfs.VirtualFile;
-import org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin;
+import org.imyuyu.idea.plugins.filesync.FileSyncPlugin;
 import org.sylfra.idea.plugins.remotesynchronizer.model.Config;
 import org.sylfra.idea.plugins.remotesynchronizer.model.ConfigListener;
 import org.sylfra.idea.plugins.remotesynchronizer.model.SynchroMapping;
@@ -44,7 +44,7 @@ public class ConfigPathsManager
   public boolean isRelativePath(String path)
   {
     return isRelativePath(
-      ProjectRootManager.getInstance(plugin.getProject()).getContentRoots(), path);
+      ProjectRootManager.getInstance(plugin.project).getContentRoots(), path);
   }
 
   public boolean isRelativePath(VirtualFile[] roots, String path)
@@ -70,7 +70,7 @@ public class ConfigPathsManager
 
   public boolean isOutputPath(String path)
   {
-    Module[] modules = ModuleManager.getInstance(plugin.getProject()).getModules();
+    Module[] modules = ModuleManager.getInstance(plugin.project).getModules();
     for (Module module : modules)
     {
       CompilerModuleExtension cme = CompilerModuleExtension.getInstance(module);
@@ -97,7 +97,7 @@ public class ConfigPathsManager
     if (!f.getName().endsWith(".java"))
       return false;
 
-    VirtualFile[] vf = ProjectRootManager.getInstance(plugin.getProject()).getContentSourceRoots();
+    VirtualFile[] vf = ProjectRootManager.getInstance(plugin.project).getContentSourceRoots();
 
     for (VirtualFile aVf : vf)
     {
@@ -112,7 +112,7 @@ public class ConfigPathsManager
 
   public VirtualFile getProjectDefaultRoot()
   {
-    VirtualFile[] vf = ProjectRootManager.getInstance(plugin.getProject())
+    VirtualFile[] vf = ProjectRootManager.getInstance(plugin.project)
       .getContentRoots();
 
     return (vf.length == 0) ? plugin.getProjectBaseDir() : vf[0];

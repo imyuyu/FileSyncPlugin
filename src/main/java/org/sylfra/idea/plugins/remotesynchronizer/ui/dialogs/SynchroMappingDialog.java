@@ -2,10 +2,10 @@ package org.sylfra.idea.plugins.remotesynchronizer.ui.dialogs;
 
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
-import org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin;
+import org.imyuyu.idea.plugins.filesync.FileSyncPlugin;
 import org.sylfra.idea.plugins.remotesynchronizer.model.SynchroMapping;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;
-import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
+import org.imyuyu.idea.plugins.filesync.utils.LabelsFactory;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.PathsUtils;
 
 import javax.swing.*;

@@ -1,13 +1,12 @@
 package org.sylfra.idea.plugins.remotesynchronizer.ui.config.panes;
 
 import com.intellij.openapi.ui.ComboBox;
-import com.intellij.ui.IdeBorderFactory;
 import com.intellij.ui.components.JBCheckBox;
 import com.intellij.ui.components.JBPanel;
 import com.intellij.util.ui.JBInsets;
 import org.sylfra.idea.plugins.remotesynchronizer.model.Config;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;
-import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
+import org.imyuyu.idea.plugins.filesync.utils.LabelsFactory;
 
 import javax.swing.*;
 import java.awt.*;

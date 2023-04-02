@@ -1,9 +1,9 @@
 package org.sylfra.idea.plugins.remotesynchronizer.ui;
 
 import com.intellij.openapi.wm.ToolWindowManager;
-import org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin;
+import org.imyuyu.idea.plugins.filesync.FileSyncPlugin;
 import org.sylfra.idea.plugins.remotesynchronizer.synchronizing.SynchronizerThread;
-import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
+import org.imyuyu.idea.plugins.filesync.utils.LabelsFactory;
 
 import javax.swing.*;
 
@@ -159,7 +159,7 @@ public class ThreadConsolePane extends JTabbedPane
 
   public void doPopup()
   {
-    ToolWindowManager.getInstance(plugin.getProject())
+    ToolWindowManager.getInstance(plugin.project)
       .getToolWindow(FileSyncPlugin.PLUGIN_NAME)
       .show(null);
   }

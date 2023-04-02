@@ -1,6 +1,6 @@
 package org.sylfra.idea.plugins.remotesynchronizer.ui.tables;
 
-import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
+import org.imyuyu.idea.plugins.filesync.utils.LabelsFactory;
 
 /**
  * Contains one column for excluded copy paths

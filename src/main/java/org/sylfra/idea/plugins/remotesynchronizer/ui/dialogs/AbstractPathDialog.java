@@ -43,7 +43,7 @@ public abstract class AbstractPathDialog extends DialogWrapper implements Dispos
   protected TextFieldWithBrowseButton createTextField()
   {
     TextFieldWithBrowseButton browseButton = new TextFieldWithBrowseButton(null, this);
-    browseButton.addBrowseFolderListener(null, null, pathManager.getPlugin().getProject(), fcDescriptor);
+    browseButton.addBrowseFolderListener(null, null, pathManager.getPlugin().project, fcDescriptor);
     browseButton.getTextField().setColumns(TEXT_SIZE);
     browseButton.getTextField().addActionListener(e -> doOKAction());
     return browseButton;
@@ -61,7 +61,7 @@ public abstract class AbstractPathDialog extends DialogWrapper implements Dispos
 
     if (pathManager.getPlugin().getConfig().getGeneralOptions().isStoreRelativePaths())
     {
-      result = PathsUtils.getRelativePath(pathManager.getPlugin().getProject(), result);
+      result = PathsUtils.getRelativePath(pathManager.getPlugin().project, result);
     }
 
     char c = path.charAt(path.length() - 1);
@@ -94,7 +94,7 @@ public abstract class AbstractPathDialog extends DialogWrapper implements Dispos
         }
 
         VirtualFile[] virtualFiles = FileChooser.chooseFiles(fcDescriptor, (Component) e.getSource(),
-          pathManager.getPlugin().getProject(), toSelect);
+                pathManager.getPlugin().project, toSelect);
 
         if (virtualFiles.length > 0)
         {

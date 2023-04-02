@@ -1,13 +1,12 @@
 package org.sylfra.idea.plugins.remotesynchronizer.ui.config;
 
-import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.plugins.PluginManagerCore;
 import com.intellij.openapi.extensions.PluginId;
 import com.intellij.openapi.project.Project;
 import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBPanel;
 import com.intellij.ui.components.JBTabbedPane;
-import org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin;
+import org.imyuyu.idea.plugins.filesync.FileSyncPlugin;
 import org.sylfra.idea.plugins.remotesynchronizer.model.Config;
 import org.sylfra.idea.plugins.remotesynchronizer.ui.config.panes.GeneralPane;
 import org.sylfra.idea.plugins.remotesynchronizer.ui.config.panes.IConfigPane;
@@ -30,13 +29,13 @@ public class ConfigPanel extends JPanel
   public ConfigPanel(FileSyncPlugin plugin)
   {
     configPanes = new IConfigPane[]{
-      new TargetsPane(plugin.getPathManager()),
-      new GeneralPane(plugin.getProject(), plugin.getPathManager()),
+      new TargetsPane(plugin.pathManager),
+      new GeneralPane(plugin.project, plugin.pathManager),
       new LogPane()
     };
 
-    buildUI(plugin.getPathManager());
-    currentProject = plugin.getProject();
+    buildUI(plugin.pathManager);
+    currentProject = plugin.project;
   }
 
   public Project getCurrentProject()

@@ -3,10 +3,10 @@ package org.sylfra.idea.plugins.remotesynchronizer.ui;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionToolbar;
-import org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin;
+import org.imyuyu.idea.plugins.filesync.FileSyncPlugin;
 import org.sylfra.idea.plugins.remotesynchronizer.model.Config;
 import org.sylfra.idea.plugins.remotesynchronizer.model.ConfigListener;
-import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
+import org.imyuyu.idea.plugins.filesync.utils.LabelsFactory;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -35,6 +35,7 @@ public class ToolPanel extends JPanel
     ActionToolbar toolbar = ActionManager.getInstance()
       .createActionToolbar(FileSyncPlugin.PLUGIN_NAME, actionGroup,
         false);
+    toolbar.setTargetComponent(consolePane);
 
     add(toolbar.getComponent(), BorderLayout.WEST);
     add(emptyLabel, BorderLayout.CENTER);

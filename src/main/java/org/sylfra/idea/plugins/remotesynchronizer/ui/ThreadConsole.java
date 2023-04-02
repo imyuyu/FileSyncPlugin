@@ -7,7 +7,7 @@ import org.sylfra.idea.plugins.remotesynchronizer.model.SyncronizingStatsInfo;
 import org.sylfra.idea.plugins.remotesynchronizer.synchronizing.SynchronizerThread;
 import org.sylfra.idea.plugins.remotesynchronizer.synchronizing.SynchronizerThreadListener;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;
-import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
+import org.imyuyu.idea.plugins.filesync.utils.LabelsFactory;
 
 import javax.swing.*;
 import javax.swing.text.*;
@@ -337,7 +337,7 @@ public class ThreadConsole extends JScrollPane
   public void fileCopying(SynchronizerThread thread, final String src, final String dest,
     final int copyType)
   {
-    final ConfigPathsManager pathsManager = thread.getPlugin().getPathManager();
+    final ConfigPathsManager pathsManager = thread.getPlugin().pathManager;
 
     String tmpSrc = pathsManager.toPresentablePath(src);
     String tmpDest = dest;
@@ -375,7 +375,7 @@ public class ThreadConsole extends JScrollPane
   public void fileDeleting(SynchronizerThread thread, String path)
   {
     String time = TIME_FORMATTER.format(new Date());
-    path = thread.getPlugin().getPathManager().toPresentablePath(path);
+    path = thread.getPlugin().pathManager.toPresentablePath(path);
     append(time + " " + INFO_COPY_DELETED + " " + path);
   }
 

@@ -12,7 +12,7 @@ public class ThreadStopAction extends AnAction
 {
   public void actionPerformed(AnActionEvent e)
   {
-    Utils.getPlugin(e).getConsolePane().getCurrentConsole().getThread().stop();
+    Utils.getPlugin(e).consolePane.getCurrentConsole().getThread().stop();
   }
 
   public void update(AnActionEvent e)

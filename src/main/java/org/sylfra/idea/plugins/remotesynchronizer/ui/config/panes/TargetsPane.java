@@ -4,7 +4,7 @@ import org.sylfra.idea.plugins.remotesynchronizer.model.Config;
 import org.sylfra.idea.plugins.remotesynchronizer.ui.config.ActionsHolder;
 import org.sylfra.idea.plugins.remotesynchronizer.ui.config.TargetTabbedPane;
 import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager;
-import org.sylfra.idea.plugins.remotesynchronizer.utils.LabelsFactory;
+import org.imyuyu.idea.plugins.filesync.utils.LabelsFactory;
 
 import javax.swing.*;
 import java.awt.*;

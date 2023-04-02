@@ -3,7 +3,7 @@ package org.sylfra.idea.plugins.remotesynchronizer.utils;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.project.Project;
-import org.sylfra.idea.plugins.remotesynchronizer.FileSyncPlugin;
+import org.imyuyu.idea.plugins.filesync.FileSyncPlugin;
 import org.sylfra.idea.plugins.remotesynchronizer.synchronizing.SynchronizerThread;
 import org.sylfra.idea.plugins.remotesynchronizer.ui.ThreadConsole;
 
@@ -78,7 +78,7 @@ public class Utils
     if (plugin == null)
       return null;
 
-    ThreadConsole currentConsole = plugin.getConsolePane().getCurrentConsole();
+    ThreadConsole currentConsole = plugin.consolePane.getCurrentConsole();
     if (currentConsole == null)
       return null;
 
