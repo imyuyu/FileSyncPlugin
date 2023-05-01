@@ -134,3 +134,9 @@ Thanks to YourKit for providing a free licence for [YourKit Java Profiler](http:
 *YourKit is kindly supporting open source projects with its full-featured Java Profiler.*
 *YourKit, LLC is the creator of innovative and intelligent tools for profiling Java and .NET applications.*
 *Take a look at !YourKit's leading software products: [YourKit Java Profiler](http://www.yourkit.com/java/profiler/index.jsp) and [YourKit .NET Profiler](http://www.yourkit.com/.net/profiler/index.jsp).*
+
+由 JetBrains 提供支持的开发。
+
+https://www.jetbrains.com/?from=IntelliJRainbowBrackets
+
+无论您使用哪种技术，都有一款 JetBrains 工具可以匹配。
