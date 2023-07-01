@@ -68,9 +68,13 @@ class TargetTab(
     @Suppress("UNCHECKED_CAST")
     fun apply() {
         targetMappings.isActive = cbActive.isSelected
-        targetMappings.synchroMappings = synchroTable.data!!.toTypedArray() as Array<SynchroMapping?>
-        targetMappings.excludedCopyPaths = excludedCopyTable.data!!.toTypedArray() as Array<String>
-        targetMappings.excludedDeletePaths = excludedDeleteTable.data!!.toTypedArray() as Array<String>
+        targetMappings.synchroMappings = toArray(synchroTable.data!!)
+        targetMappings.excludedCopyPaths = toArray(excludedCopyTable.data!!)
+        targetMappings.excludedDeletePaths = toArray(excludedDeleteTable.data!!)
+    }
+
+    inline fun <reified T> toArray(list: List<*>): Array<T> {
+        return (list as List<T>).toTypedArray()
     }
 
     private fun buildUI(pathsManager: ConfigPathsManager) {
