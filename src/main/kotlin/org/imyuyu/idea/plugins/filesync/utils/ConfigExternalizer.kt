@@ -6,7 +6,7 @@ import com.intellij.util.xmlb.XmlSerializer
 import org.jdom.Document
 import org.jdom.JDOMException
 import org.imyuyu.idea.plugins.filesync.FileSyncPlugin
-import org.sylfra.idea.plugins.remotesynchronizer.model.Config
+import org.imyuyu.idea.plugins.filesync.model.Config
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException

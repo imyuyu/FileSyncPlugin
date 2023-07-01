@@ -7,8 +7,8 @@ import com.intellij.openapi.util.NlsContexts.ConfigurableName
 import org.imyuyu.idea.plugins.filesync.adaptedMessage
 import org.jetbrains.annotations.NonNls
 import org.imyuyu.idea.plugins.filesync.FileSyncPlugin
-import org.sylfra.idea.plugins.remotesynchronizer.model.Config
-import org.sylfra.idea.plugins.remotesynchronizer.ui.config.ConfigPanel
+import org.imyuyu.idea.plugins.filesync.model.Config
+import org.imyuyu.idea.plugins.filesync.ui.config.ConfigPanel
 import org.imyuyu.idea.plugins.filesync.utils.ConfigStateComponent
 import javax.swing.JComponent
 
@@ -45,18 +45,18 @@ class FileSyncConfigurable(private val project: Project) : SearchableConfigurabl
         if(panel == null){
             return false;
         }
-        return panel!!.isModified(config)
+        return panel!!.isModified(config!!)
     }
 
     @Throws(ConfigurationException::class)
     override fun apply() {
         val config = config
-        panel!!.apply(config)
+        panel!!.apply(config!!)
         config!!.fireConfigChanged()
     }
 
     override fun reset() {
-        panel!!.reset(config)
+        panel!!.reset(config!!)
     }
 
     override fun disposeUIResources() {

@@ -7,16 +7,13 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.VirtualFileManager
 import org.imyuyu.idea.plugins.filesync.utils.ConfigExternalizer
 import org.imyuyu.idea.plugins.filesync.utils.ConfigStateComponent
-import org.sylfra.idea.plugins.remotesynchronizer.javasupport.IJavaSupport
-import org.sylfra.idea.plugins.remotesynchronizer.javasupport.NoJavaSupport
-import org.sylfra.idea.plugins.remotesynchronizer.model.Config
-import org.sylfra.idea.plugins.remotesynchronizer.synchronizing.SynchronizerThreadManager
-import org.sylfra.idea.plugins.remotesynchronizer.ui.ThreadConsolePane
-import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager
-import java.net.URL
+import org.imyuyu.idea.plugins.filesync.javasupport.IJavaSupport
+import org.imyuyu.idea.plugins.filesync.javasupport.NoJavaSupport
+import org.imyuyu.idea.plugins.filesync.model.Config
+import org.imyuyu.idea.plugins.filesync.synchronizing.SynchronizerThreadManager
+import org.imyuyu.idea.plugins.filesync.ui.ThreadConsolePane
+import org.imyuyu.idea.plugins.filesync.utils.ConfigPathsManager
 import java.util.*
-import javax.swing.Icon
-import javax.swing.ImageIcon
 
 class FileSyncPlugin(// Current project
   @JvmField val project: Project

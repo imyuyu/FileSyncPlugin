@@ -11,7 +11,7 @@ import org.imyuyu.idea.plugins.filesync.FileSyncPlugin
  */
 class RemoteSynchronizeAllAction : AbstractRemoteSynchronizeAction(adaptedMessage("ACTION_SYNC_ALL"), adaptedMessage("ACTION_SYNC_ALL_DESC")) {
 
-    override fun getFiles(plugin: FileSyncPlugin, dataContext: DataContext?): Array<VirtualFile>? {
+    override fun getFiles(plugin: FileSyncPlugin, dataContext: DataContext?): Array<VirtualFile> {
         return ProjectRootManager.getInstance(plugin.project).contentRoots
     }
 }

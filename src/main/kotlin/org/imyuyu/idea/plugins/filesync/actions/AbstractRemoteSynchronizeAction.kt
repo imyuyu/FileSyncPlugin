@@ -9,8 +9,8 @@ import com.intellij.openapi.util.NlsActions
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.openapi.vfs.VirtualFile
 import org.imyuyu.idea.plugins.filesync.FileSyncPlugin
-import org.sylfra.idea.plugins.remotesynchronizer.utils.ConfigPathsManager
-import org.sylfra.idea.plugins.remotesynchronizer.utils.Utils
+import org.imyuyu.idea.plugins.filesync.utils.ConfigPathsManager
+import org.imyuyu.idea.plugins.filesync.utils.Utils
 
 /**
  * Common code for [RemoteSynchronizeOpenedAction] and
@@ -25,7 +25,7 @@ abstract class AbstractRemoteSynchronizeAction(
      */
     override fun actionPerformed(e: AnActionEvent) {
         val plugin = Utils.getPlugin(e)
-        val files = getFiles(plugin, e.dataContext) ?: return
+        val files = getFiles(plugin!!, e.dataContext) ?: return
         if (plugin.config.generalOptions.isSaveBeforeCopy) FileDocumentManager.getInstance().saveAllDocuments()
         if (!plugin.copierThreadManager.hasRunningSynchro()) refreshVfsIfJavaSelected(files, plugin.pathManager)
         plugin.launchSyncIfAllowed(files)
@@ -47,7 +47,7 @@ abstract class AbstractRemoteSynchronizeAction(
         e.presentation.isEnabled = isEnabled(e)
     }
 
-    protected open fun isEnabled(e: AnActionEvent?): Boolean {
+    protected open fun isEnabled(e: AnActionEvent): Boolean {
         val plugin = Utils.getPlugin(e)
         return (plugin != null
                 && (plugin.config.generalOptions.isAllowConcurrentRuns
@@ -57,5 +57,5 @@ abstract class AbstractRemoteSynchronizeAction(
     protected abstract fun getFiles(
         plugin: FileSyncPlugin,
         dataContext: DataContext?
-    ): Array<VirtualFile>?
+    ): Array<VirtualFile>
 }

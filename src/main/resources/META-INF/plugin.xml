@@ -47,37 +47,37 @@
   <actions>
     <group id="FileSyncWindow" text="File Sync" popup="true">
       <action id="FileSync.RerunLastSynchroAction"
-        class="org.sylfra.idea.plugins.remotesynchronizer.actions.toolbar.RerunLastSynchroAction"
+        class="org.imyuyu.idea.plugins.filesync.actions.toolbar.RerunLastSynchroAction"
         text="Rerun last synchronization"
         description="Rerun last synchronization"
         icon="/actions/refreshUsages.png">
       </action>
       <action id="FileSync.ThreadStopAction"
-        class="org.sylfra.idea.plugins.remotesynchronizer.actions.toolbar.ThreadStopAction"
+        class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ThreadStopAction"
         text="Stop remote synchronizing"
         description="Stop remote synchronizing"
         icon="/actions/suspend.png">
       </action>
       <action id="FileSync.ThreadInterruptAction"
-        class="org.sylfra.idea.plugins.remotesynchronizer.actions.toolbar.ThreadInterruptAction"
+        class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ThreadInterruptAction"
         text="Interrupt remote synchronizing"
         description="Interrupt remote synchronizing"
         icon="/actions/pause.png">
       </action>
       <action id="FileSync.ThreadResumeAction"
-        class="org.sylfra.idea.plugins.remotesynchronizer.actions.toolbar.ThreadResumeAction"
+        class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ThreadResumeAction"
         text="Resume remote synchronizing"
         description="Resume remote synchronizing"
         icon="/actions/resume.png">
       </action>
       <action id="FileSync.ConsoleClearAction"
-        class="org.sylfra.idea.plugins.remotesynchronizer.actions.toolbar.ConsoleClearAction"
+        class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ConsoleClearAction"
         text="Clear console"
         description="Clear console"
         icon="/actions/gc.png">
       </action>
       <action id="FileSync.ConsoleRemoveAction"
-        class="org.sylfra.idea.plugins.remotesynchronizer.actions.toolbar.ConsoleRemoveAction"
+        class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ConsoleRemoveAction"
         text="Remove current tab"
         description="Remove current tab"
         icon="/general/remove.png">

@@ -12,7 +12,7 @@ import com.intellij.openapi.fileEditor.FileDocumentManagerListener
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.ProjectFileIndex
 import org.imyuyu.idea.plugins.filesync.FileSyncPlugin
-import org.sylfra.idea.plugins.remotesynchronizer.model.Config
+import org.imyuyu.idea.plugins.filesync.model.Config
 
 /**
  *

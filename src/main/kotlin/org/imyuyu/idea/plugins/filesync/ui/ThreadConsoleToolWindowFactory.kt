@@ -7,7 +7,6 @@ import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.content.ContentFactory
 import org.imyuyu.idea.plugins.filesync.adaptedMessage
 import org.imyuyu.idea.plugins.filesync.FileSyncPlugin
-import org.sylfra.idea.plugins.remotesynchronizer.ui.ToolPanel
 
 /**
  *

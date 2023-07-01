@@ -12,7 +12,7 @@ import org.imyuyu.idea.plugins.filesync.FileSyncPlugin
 class RemoteSynchronizeOpenedAction :
     AbstractRemoteSynchronizeAction(adaptedMessage("ACTION_SYNC_ALL_OPEN"), adaptedMessage("ACTION_SYNC_ALL_OPEN_DESC")) {
 
-    override fun getFiles(plugin: FileSyncPlugin, dataContext: DataContext?): Array<VirtualFile>? {
+    override fun getFiles(plugin: FileSyncPlugin, dataContext: DataContext?): Array<VirtualFile> {
         return FileEditorManager.getInstance(plugin.project).openFiles
     }
 }

@@ -1,7 +1,7 @@
 <idea-plugin>
   <extensions defaultExtensionNs="com.intellij">
     <projectService
-            serviceInterface="org.sylfra.idea.plugins.remotesynchronizer.javasupport.IJavaSupport"
-            serviceImplementation="org.sylfra.idea.plugins.remotesynchronizer.javasupport.DefaultJavaSupport" />
+            serviceInterface="org.imyuyu.idea.plugins.filesync.javasupport.IJavaSupport"
+            serviceImplementation="org.imyuyu.idea.plugins.filesync.javasupport.DefaultJavaSupport" />
   </extensions>
 </idea-plugin>
