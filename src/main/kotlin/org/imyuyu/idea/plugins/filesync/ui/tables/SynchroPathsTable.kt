@@ -12,7 +12,7 @@ class SynchroPathsTable(pathManager: ConfigPathsManager) : AbstractPathTable(Pri
         getColumnModel().getColumn(NUM_COL_SRC_PATH).cellRenderer = RelativePathCellRenderer(pathManager)
         getColumnModel().getColumn(NUM_COL_DEST_PATH).cellRenderer =
             PathCellRenderer(pathManager)
-        getColumnModel().getColumn(NUM_COL_DELETE_OBSOLETE).maxWidth = 20
+        getColumnModel().getColumn(NUM_COL_DELETE_OBSOLETE).maxWidth = 50
     }
 
     private class PrivatePathTableModel : AbstractPathTableModel(COLUMN_NAMES) {

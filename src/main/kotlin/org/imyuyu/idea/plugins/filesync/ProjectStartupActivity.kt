@@ -1,6 +1,7 @@
 package org.imyuyu.idea.plugins.filesync
 
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.startup.ProjectActivity
 import com.intellij.openapi.startup.StartupActivity
 
 /**
@@ -11,9 +12,9 @@ import com.intellij.openapi.startup.StartupActivity
  *
  * @author Zhengyu Hu
  */
-class ProjectStartupActivity : StartupActivity {
+class ProjectStartupActivity : ProjectActivity {
 
-    override fun runActivity(project: Project) {
-        project.getService(FileSyncPlugin::class.java).projectOpened()
+    override suspend fun execute(project: Project) {
+        FileSyncPlugin.getInstance(project).projectOpened()
     }
 }

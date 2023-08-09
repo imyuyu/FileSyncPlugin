@@ -49,39 +49,39 @@
     <group id="FileSyncWindow" text="File Sync" popup="true">
       <action id="FileSync.RerunLastSynchroAction"
         class="org.imyuyu.idea.plugins.filesync.actions.toolbar.RerunLastSynchroAction"
-        text="Rerun last synchronization"
+        text="Rerun Last Synchronization"
         description="Rerun last synchronization"
-        icon="/actions/refreshUsages.png">
+        icon="com.intellij.icons.ExpUiIcons.Run.Run">
       </action>
       <action id="FileSync.ThreadStopAction"
         class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ThreadStopAction"
-        text="Stop remote synchronizing"
+        text="Stop Remote Synchronizing"
         description="Stop remote synchronizing"
-        icon="/actions/suspend.png">
+        icon="com.intellij.icons.ExpUiIcons.Run.Stop">
       </action>
       <action id="FileSync.ThreadInterruptAction"
         class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ThreadInterruptAction"
-        text="Interrupt remote synchronizing"
+        text="Interrupt Remote Synchronizing"
         description="Interrupt remote synchronizing"
-        icon="/actions/pause.png">
+        icon="com.intellij.icons.ExpUiIcons.Run.Pause">
       </action>
       <action id="FileSync.ThreadResumeAction"
         class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ThreadResumeAction"
-        text="Resume remote synchronizing"
+        text="Resume Remote Synchronizing"
         description="Resume remote synchronizing"
-        icon="/actions/resume.png">
+        icon="com.intellij.icons.ExpUiIcons.Run.Resume">
       </action>
       <action id="FileSync.ConsoleClearAction"
         class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ConsoleClearAction"
-        text="Clear console"
+        text="Clear Console"
         description="Clear console"
-        icon="/actions/gc.png">
+        icon="com.intellij.icons.ExpUiIcons.General.Delete">
       </action>
       <action id="FileSync.ConsoleRemoveAction"
         class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ConsoleRemoveAction"
-        text="Remove current tab"
+        text="Remove Current Tab"
         description="Remove current tab"
-        icon="/general/remove.png">
+        icon="com.intellij.icons.ExpUiIcons.General.Close">
       </action>
     </group>
 
