@@ -1,6 +1,7 @@
 package org.imyuyu.idea.plugins.filesync.utils
 
 import com.intellij.openapi.module.ModuleManager
+import com.intellij.openapi.project.modules
 import com.intellij.openapi.roots.CompilerModuleExtension
 import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.openapi.vfs.VirtualFile
@@ -50,7 +51,7 @@ class ConfigPathsManager(@JvmField val plugin: FileSyncPlugin) {
     }
 
     fun isOutputPath(path: String?): Boolean {
-        val modules = ModuleManager.getInstance(plugin.project).modules
+        val modules = plugin.project.modules;
         for (module in modules) {
             val cme = CompilerModuleExtension.getInstance(module) ?: return false
 

@@ -9,6 +9,14 @@
 
 ## [Unreleased]
 
+## [1.15.0] - 2023-08-07
+
+### Added
+- Feature: added support for IntelliJ IDEA 2023.2.
+
+### Changed
+- Use kotlin rewrite.
+
 ## [1.14.5] - 2023-04-02
 
 ### Fixed

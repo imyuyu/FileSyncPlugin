@@ -1,18 +1,18 @@
 package org.imyuyu.idea.plugins.filesync
 
 import com.intellij.openapi.components.impl.stores.IProjectStore
-import com.intellij.openapi.components.stateStore
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.VirtualFileManager
-import org.imyuyu.idea.plugins.filesync.utils.ConfigExternalizer
-import org.imyuyu.idea.plugins.filesync.utils.ConfigStateComponent
+import com.intellij.project.stateStore
 import org.imyuyu.idea.plugins.filesync.javasupport.IJavaSupport
 import org.imyuyu.idea.plugins.filesync.javasupport.NoJavaSupport
 import org.imyuyu.idea.plugins.filesync.model.Config
 import org.imyuyu.idea.plugins.filesync.synchronizing.SynchronizerThreadManager
 import org.imyuyu.idea.plugins.filesync.ui.ThreadConsolePane
+import org.imyuyu.idea.plugins.filesync.utils.ConfigExternalizer
 import org.imyuyu.idea.plugins.filesync.utils.ConfigPathsManager
+import org.imyuyu.idea.plugins.filesync.utils.ConfigStateComponent
 import java.util.*
 
 class FileSyncPlugin(// Current project

@@ -37,6 +37,7 @@
 
     <projectConfigurable id="FileSync"
                          dynamic="true"
+                         key="FileSync"
                          groupId="tools"
                          provider="org.imyuyu.idea.plugins.filesync.setting.FileSyncConfigurableProvider"/>
 
