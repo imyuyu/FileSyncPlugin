@@ -2,3 +2,5 @@
 .idea
 .qodana
 build
+/idea-sandbox/
+/.intellijPlatform/

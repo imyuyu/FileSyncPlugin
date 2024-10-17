@@ -1,6 +1,7 @@
 package org.imyuyu.idea.plugins.filesync.ui.config
 
 import com.intellij.icons.AllIcons
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.fileChooser.FileChooser
 import com.intellij.openapi.fileChooser.FileChooserDescriptor
@@ -199,7 +200,7 @@ class ActionsHolder {
             if (fileChooser == null) {
                 fileChooser = JFileChooser()
                 fileChooser!!.selectedFile = File(
-                    project.guessProjectDir()!!.path,
+                    project.guessProjectDir()?.path,
                     project.name + "-FileSync.xml"
                 )
                 fileChooser!!.fileFilter = object : FileFilter() {
@@ -215,29 +216,30 @@ class ActionsHolder {
             if (fileChooser!!.showSaveDialog(e.source as Component) != JFileChooser.APPROVE_OPTION) {
                 return
             }
-            try {
-                val destFile = fileChooser!!.selectedFile
-                getInstance(project).configExternalizer.write(destFile)
-            } catch (ex: Exception) {
-                Messages.showErrorDialog(
-                    project,
-                    LabelsFactory[LabelsFactory.MSG_EXPORT_FAILED, ex.toString()], FileSyncPlugin.PLUGIN_NAME
-                )
-                Logger.getInstance("FileSync").info("Error while exporting settings", ex)
+
+            ApplicationManager.getApplication().executeOnPooledThread {
+                try {
+                    val destFile = fileChooser!!.selectedFile
+                    getInstance(project).configExternalizer.write(destFile)
+                } catch (ex: Exception) {
+                    ApplicationManager.getApplication().invokeLater {
+                        Messages.showErrorDialog(
+                            project,
+                            LabelsFactory[LabelsFactory.MSG_EXPORT_FAILED, ex.toString()], FileSyncPlugin.PLUGIN_NAME
+                        )
+                    }
+                    Logger.getInstance("FileSync").info("Error while exporting settings", ex)
+                }
             }
         }
     }
 
     class ImportAction(private val configPanel: ConfigPanel) : AbstractAction(LabelsFactory[LabelsFactory.BN_IMPORT]) {
-        private val fcDescriptor: FileChooserDescriptor
+        private val fcDescriptor: FileChooserDescriptor = FileChooserDescriptor(true, false, false, false, false, false)
         private var selectedFile: VirtualFile? = null
 
-        init {
-            fcDescriptor = object : FileChooserDescriptor(true, false, false, false, false, false) {
-                override fun isFileVisible(file: VirtualFile, showHiddenFiles: Boolean): Boolean {
-                    return file.isDirectory || "xml" == file.extension
-                }
-            }
+        init {;
+            fcDescriptor.withExtensionFilter("xml")
             fcDescriptor.title = LabelsFactory[LabelsFactory.LB_TITLE_IMPORT_SELECT]
             fcDescriptor.description = LabelsFactory[LabelsFactory.LB_DESC_IMPORT_SELECT]
         }
