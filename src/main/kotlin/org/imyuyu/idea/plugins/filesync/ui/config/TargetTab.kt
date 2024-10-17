@@ -53,9 +53,9 @@ class TargetTab(
 
     fun isModified(config: Config?): Boolean {
         return ((cbActive.isSelected != targetMappings.isActive)
-                || (Arrays.asList(*targetMappings.synchroMappings) != synchroTable.data)
-                || (Arrays.asList(*targetMappings.excludedCopyPaths) != excludedCopyTable.data)
-                || (Arrays.asList(*targetMappings.excludedDeletePaths) != excludedDeleteTable.data))
+                || (listOf(*targetMappings.synchroMappings) != synchroTable.data)
+                || (listOf(*targetMappings.excludedCopyPaths) != excludedCopyTable.data)
+                || (listOf(*targetMappings.excludedDeletePaths) != excludedDeleteTable.data))
     }
 
     fun reset() {

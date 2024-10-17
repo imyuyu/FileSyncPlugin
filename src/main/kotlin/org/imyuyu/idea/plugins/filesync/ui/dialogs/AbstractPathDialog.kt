@@ -33,7 +33,7 @@ abstract class AbstractPathDialog(protected var pathManager: ConfigPathsManager,
         val browseButton = TextFieldWithBrowseButton(null, this)
         browseButton.addBrowseFolderListener(null, null, pathManager.plugin.project, fcDescriptor)
         browseButton.textField.columns = TEXT_SIZE
-        browseButton.textField.addActionListener { e: ActionEvent? -> doOKAction() }
+        browseButton.textField.addActionListener { doOKAction() }
         return browseButton
     }
 

@@ -14,7 +14,7 @@ import com.intellij.openapi.project.Project
 class FileSyncConfigurableProvider(private val project: Project) : ConfigurableProvider() {
 
     override fun createConfigurable(): Configurable? {
-        var fileSyncConfigurable = FileSyncConfigurable(project)
+        val fileSyncConfigurable = FileSyncConfigurable(project)
         fileSyncConfigurable.createComponent();
         return fileSyncConfigurable;
     }

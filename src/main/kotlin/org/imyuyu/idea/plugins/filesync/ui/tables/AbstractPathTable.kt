@@ -45,7 +45,7 @@ open class AbstractPathTable(model: AbstractPathTableModel?) : JTable(model) {
     }
 
     private val pathModel: AbstractPathTableModel
-        private get() = model as AbstractPathTableModel
+        get() = model as AbstractPathTableModel
 
     /**
      * Implementation based on a List

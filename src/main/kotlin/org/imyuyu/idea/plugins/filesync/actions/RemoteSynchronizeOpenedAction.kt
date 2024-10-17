@@ -1,5 +1,6 @@
 package org.imyuyu.idea.plugins.filesync.actions
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.DataContext
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.vfs.VirtualFile
@@ -14,5 +15,9 @@ class RemoteSynchronizeOpenedAction :
 
     override fun getFiles(plugin: FileSyncPlugin, dataContext: DataContext?): Array<VirtualFile> {
         return FileEditorManager.getInstance(plugin.project).openFiles
+    }
+
+    override fun getActionUpdateThread(): ActionUpdateThread {
+        return ActionUpdateThread.BGT
     }
 }

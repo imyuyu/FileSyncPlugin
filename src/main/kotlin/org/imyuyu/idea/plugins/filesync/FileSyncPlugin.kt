@@ -45,7 +45,7 @@ class FileSyncPlugin(// Current project
 
     val projectBaseDir: VirtualFile?
         get() {
-            val projectStore = project.stateStore as IProjectStore
+            val projectStore = project.stateStore
             return VirtualFileManager.getInstance().findFileByNioPath(projectStore.projectBasePath)
         }
     val config: Config

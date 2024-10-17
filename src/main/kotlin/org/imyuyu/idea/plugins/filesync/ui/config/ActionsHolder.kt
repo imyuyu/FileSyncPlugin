@@ -199,7 +199,7 @@ class ActionsHolder {
             if (fileChooser == null) {
                 fileChooser = JFileChooser()
                 fileChooser!!.selectedFile = File(
-                    project!!.guessProjectDir()!!.path,
+                    project.guessProjectDir()!!.path,
                     project.name + "-FileSync.xml"
                 )
                 fileChooser!!.fileFilter = object : FileFilter() {
@@ -217,7 +217,7 @@ class ActionsHolder {
             }
             try {
                 val destFile = fileChooser!!.selectedFile
-                getInstance(project!!).configExternalizer.write(destFile)
+                getInstance(project).configExternalizer.write(destFile)
             } catch (ex: Exception) {
                 Messages.showErrorDialog(
                     project,
@@ -245,14 +245,14 @@ class ActionsHolder {
         override fun actionPerformed(e: ActionEvent) {
             val project = configPanel.currentProject
             if (selectedFile == null) {
-                selectedFile = project!!.guessProjectDir()
+                selectedFile = project.guessProjectDir()
             }
             val virtualFiles = FileChooser.chooseFiles(fcDescriptor, project, selectedFile)
             if (virtualFiles.size == 0) {
                 return
             }
             selectedFile = virtualFiles[0]
-            val plugin = getInstance(project!!)
+            val plugin = getInstance(project)
             try {
                 plugin.configExternalizer.read(
                     File(selectedFile!!.path)

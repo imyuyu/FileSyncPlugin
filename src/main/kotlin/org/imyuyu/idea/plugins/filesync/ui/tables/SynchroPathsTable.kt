@@ -21,7 +21,7 @@ class SynchroPathsTable(pathManager: ConfigPathsManager) : AbstractPathTable(Pri
         }
 
         override fun getValueAt(row: Int, col: Int): Any? {
-            val p = getValueAt(row) as SynchroMapping ?: return null
+            val p = getValueAt(row) as SynchroMapping
             when (col) {
                 NUM_COL_SRC_PATH -> return p.srcPath!!
                 NUM_COL_DEST_PATH -> return p.destPath!!

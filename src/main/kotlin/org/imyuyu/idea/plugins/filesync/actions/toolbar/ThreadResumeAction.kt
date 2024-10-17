@@ -1,5 +1,6 @@
 package org.imyuyu.idea.plugins.filesync.actions.toolbar
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import org.imyuyu.idea.plugins.filesync.utils.Utils.getCurrentCopierThread
@@ -16,5 +17,9 @@ class ThreadResumeAction : AnAction() {
     override fun update(e: AnActionEvent) {
         val t = getCurrentCopierThread(e)
         e.presentation.isVisible = t != null && t.isInterrupted
+    }
+
+    override fun getActionUpdateThread(): ActionUpdateThread {
+        return ActionUpdateThread.BGT
     }
 }

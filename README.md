@@ -1,3 +1,8 @@
+# FileSyncPlugin
+
+![Build](https://github.com/imyuyu/sqltoy-idea-plugin/workflows/Build/badge.svg)
+[![Version](https://img.shields.io/jetbrains/plugin/v/18967-filesync.svg)](https://plugins.jetbrains.com/plugin/18967-filesync)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/18967-filesync.svg)](https://plugins.jetbrains.com/plugin/18967-filesync)
 
 # What it is ?
 <!-- Plugin description -->

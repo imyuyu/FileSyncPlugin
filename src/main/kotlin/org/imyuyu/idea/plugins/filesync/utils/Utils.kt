@@ -20,7 +20,7 @@ object Utils {
         return adjustComponentSizesToMax(arrayOf(c1, c2))
     }
 
-    fun adjustComponentSizesToMax(l: Array<JComponent>): Dimension {
+    private fun adjustComponentSizesToMax(l: Array<JComponent>): Dimension {
         var width = 0
         var height = 0
         for (aL in l) {
@@ -51,15 +51,15 @@ object Utils {
     }
 
     @JvmStatic
-    fun getPlugin(e: AnActionEvent): FileSyncPlugin {
-        val project = e.getData(CommonDataKeys.PROJECT)
-        return if (project == null) throw NullPointerException("can't get project from event!") else getInstance(project)
+    fun getPlugin(e: AnActionEvent): FileSyncPlugin? {
+        val project = e.getData(CommonDataKeys.PROJECT) ?: return null
+        return getInstance(project)
     }
 
     @JvmStatic
     fun getCurrentCopierThread(e: AnActionEvent): SynchronizerThread? {
         val plugin = getPlugin(e) ?: return null
-        val currentConsole = plugin.consolePane.currentConsole ?: return null
+        val currentConsole = plugin.consolePane.currentConsole
         return currentConsole.thread
     }
 

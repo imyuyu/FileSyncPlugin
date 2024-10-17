@@ -21,10 +21,10 @@ class SynchroMapping : Cloneable {
         isDeleteObsoleteFiles = deleteObsoleteFiles
     }
 
-    override fun equals(o: Any?): Boolean {
-        if (this === o) return true
-        if (o !is SynchroMapping) return false
-        val synchroMapping = o
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is SynchroMapping) return false
+        val synchroMapping = other
         if (isDeleteObsoleteFiles != synchroMapping.isDeleteObsoleteFiles) return false
         if (if (destPath != null) destPath != synchroMapping.destPath else synchroMapping.destPath != null) return false
         return if (if (srcPath != null) srcPath != synchroMapping.srcPath else synchroMapping.srcPath != null) false else true

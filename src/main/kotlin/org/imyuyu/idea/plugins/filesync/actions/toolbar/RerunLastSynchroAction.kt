@@ -1,5 +1,6 @@
 package org.imyuyu.idea.plugins.filesync.actions.toolbar
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import org.imyuyu.idea.plugins.filesync.utils.Utils.getCurrentCopierThread
@@ -15,7 +16,11 @@ class RerunLastSynchroAction : AnAction() {
 
     override fun update(e: AnActionEvent) {
         val t = getCurrentCopierThread(e)
-        val enabled = t != null && t.isAvailable && t.selectedFiles != null
+        val enabled = t != null && t.isAvailable
         e.presentation.isEnabled = enabled
+    }
+
+    override fun getActionUpdateThread(): ActionUpdateThread {
+        return ActionUpdateThread.BGT
     }
 }

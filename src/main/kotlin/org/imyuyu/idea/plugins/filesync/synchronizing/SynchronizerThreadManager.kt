@@ -52,7 +52,7 @@ class SynchronizerThreadManager(private val plugin: FileSyncPlugin) : ConfigList
         var result: SynchronizerThread?
         for (thread in threads) {
             result = thread
-            if (result!!.targetMappings == target && result!!.isAvailable) {
+            if (result!!.targetMappings == target && result.isAvailable) {
                 return result
             }
         }

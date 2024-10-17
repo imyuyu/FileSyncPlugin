@@ -1,8 +1,8 @@
 package org.imyuyu.idea.plugins.filesync.utils
 
 import com.intellij.openapi.components.impl.stores.IProjectStore
-import com.intellij.openapi.components.stateStore
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.util.io.FileUtil
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.openapi.vfs.VirtualFile
@@ -34,7 +34,7 @@ object PathsUtils {
         var childFile: File? = File(childPath)
         val parentFile = File(parentPath)
         while (childFile != null) {
-            if (childFile == parentFile) {
+            if (FileUtil.filesEqual(childFile, parentFile)) {
                 return true
             }
             childFile = childFile.parentFile
@@ -66,7 +66,7 @@ object PathsUtils {
     @JvmStatic
     fun getRelativePath(project: Project, path: String): String {
         var path = path
-        val projectStore = project.stateStore as IProjectStore
+        val projectStore = project.stateStore
         var projectDir = VirtualFileManager.getInstance().findFileByNioPath(projectStore.projectBasePath)
         path = path.replace(PATTERN_PROJECT_DIR, projectDir!!.path)
         if (path == projectDir.path) {

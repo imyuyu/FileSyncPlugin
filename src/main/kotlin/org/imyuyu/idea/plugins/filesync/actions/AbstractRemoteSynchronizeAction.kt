@@ -25,7 +25,7 @@ abstract class AbstractRemoteSynchronizeAction(
      */
     override fun actionPerformed(e: AnActionEvent) {
         val plugin = Utils.getPlugin(e)
-        val files = getFiles(plugin!!, e.dataContext) ?: return
+        val files = getFiles(plugin!!, e.dataContext)
         if (plugin.config.generalOptions.isSaveBeforeCopy) FileDocumentManager.getInstance().saveAllDocuments()
         if (!plugin.copierThreadManager.hasRunningSynchro()) refreshVfsIfJavaSelected(files, plugin.pathManager)
         plugin.launchSyncIfAllowed(files)

@@ -1,5 +1,6 @@
 package org.imyuyu.idea.plugins.filesync.actions.toolbar
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import org.imyuyu.idea.plugins.filesync.utils.Utils.getCurrentCopierThread
@@ -17,5 +18,9 @@ class ThreadStopAction : AnAction() {
         val t = getCurrentCopierThread(e)
         val running = t != null && !t.isAvailable
         e.presentation.isEnabled = running
+    }
+
+    override fun getActionUpdateThread(): ActionUpdateThread {
+        return ActionUpdateThread.EDT
     }
 }

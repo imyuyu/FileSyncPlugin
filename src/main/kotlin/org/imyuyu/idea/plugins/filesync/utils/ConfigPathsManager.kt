@@ -44,10 +44,10 @@ class ConfigPathsManager(@JvmField val plugin: FileSyncPlugin) {
     }
 
     fun isRelativePath(root: String?, path: String?): Boolean {
-        var path = path
-        path = expandPath(path, true)
-        return (path!!.lowercase(Locale.getDefault()).indexOf(root!!.lowercase(Locale.getDefault())) == 0
-                && (path.length == root.length || path[root.length] == '/'))
+        var thePath = path
+        thePath = expandPath(thePath, true)
+        return (thePath!!.lowercase(Locale.getDefault()).indexOf(root!!.lowercase(Locale.getDefault())) == 0
+                && (thePath.length == root.length || thePath[root.length] == '/'))
     }
 
     fun isOutputPath(path: String?): Boolean {

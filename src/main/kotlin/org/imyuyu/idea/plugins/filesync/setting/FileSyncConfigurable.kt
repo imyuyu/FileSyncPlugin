@@ -52,7 +52,7 @@ class FileSyncConfigurable(private val project: Project) : SearchableConfigurabl
     override fun apply() {
         val config = config
         panel!!.apply(config!!)
-        config!!.fireConfigChanged()
+        config.fireConfigChanged()
     }
 
     override fun reset() {

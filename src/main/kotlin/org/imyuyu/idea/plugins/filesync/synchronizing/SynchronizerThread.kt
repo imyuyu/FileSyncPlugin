@@ -148,10 +148,9 @@ class SynchronizerThread(
      * paths. Add files recursively.
      */
     private fun addPathsToCopy(files: Array<VirtualFile>) {
-        if (files == null) return
         val pathManager = plugin.pathManager
         for (f in files) {
-            if (f!!.isDirectory) {
+            if (f.isDirectory) {
                 addPathsToCopy(f.children)
             } else {
                 if (!filesToCopy.contains(f.path)) {
@@ -178,12 +177,11 @@ class SynchronizerThread(
      */
     private fun filterFilesToDelete() {
         filesToDelete.clear()
-        if (selectedFiles == null) return
 
         // If there is no directory selected, no need to look for files to delete
         var dirSelected = false
-        for (selectedFile in selectedFiles!!) {
-            if (selectedFile!!.isDirectory) {
+        for (selectedFile in selectedFiles) {
+            if (selectedFile.isDirectory) {
                 dirSelected = true
                 break
             }
@@ -227,8 +225,8 @@ class SynchronizerThread(
      * Does this path belong to file selection ?
      */
     private fun isContainedInSelection(path: String): Boolean {
-        for (file in selectedFiles!!) {
-            if (plugin.pathManager.isRelativePath(file!!.path, path)) {
+        for (file in selectedFiles) {
+            if (plugin.pathManager.isRelativePath(file.path, path)) {
                 return true
             }
         }

@@ -77,7 +77,7 @@ class ThreadConsole(
     }
 
     private val consoleNameSuffix: String
-        private get() {
+        get() {
             val i = title!!.lastIndexOf(" (")
             return if (i == -1) "" else title!!.substring(i)
         }
@@ -259,10 +259,9 @@ class ThreadConsole(
     }
 
     override fun fileDeleting(thread: SynchronizerThread?, path: String?) {
-        var path = path
         val time = TIME_FORMATTER.format(Date())
-        path = thread!!.plugin.pathManager.toPresentablePath(path!!)
-        append(time + " " + INFO_COPY_DELETED + " " + path)
+        val thePath = thread!!.plugin.pathManager.toPresentablePath(path!!)
+        append("$time $INFO_COPY_DELETED $thePath")
     }
 
     override fun copyFailed(thread: SynchronizerThread?, t: Throwable?) {

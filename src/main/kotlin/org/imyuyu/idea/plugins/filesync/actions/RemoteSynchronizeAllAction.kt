@@ -1,5 +1,6 @@
 package org.imyuyu.idea.plugins.filesync.actions
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.DataContext
 import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.openapi.vfs.VirtualFile
@@ -13,5 +14,9 @@ class RemoteSynchronizeAllAction : AbstractRemoteSynchronizeAction(adaptedMessag
 
     override fun getFiles(plugin: FileSyncPlugin, dataContext: DataContext?): Array<VirtualFile> {
         return ProjectRootManager.getInstance(plugin.project).contentRoots
+    }
+
+    override fun getActionUpdateThread(): ActionUpdateThread {
+        return ActionUpdateThread.BGT
     }
 }

@@ -1,5 +1,6 @@
 package org.imyuyu.idea.plugins.filesync.actions
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.actionSystem.DataContext
@@ -21,8 +22,12 @@ class RemoteSynchronizeSelectedAction :
     public override fun isEnabled(e: AnActionEvent): Boolean {
         // Some files must be selected
         return (super.isEnabled(e)
-                && (Utils.getPlugin(e)!!.javaSupport!!.insideModule(e!!.dataContext) || CommonDataKeys.VIRTUAL_FILE_ARRAY.getData(
+                && (Utils.getPlugin(e)!!.javaSupport!!.insideModule(e.dataContext) || CommonDataKeys.VIRTUAL_FILE_ARRAY.getData(
             e.dataContext
         ) != null))
+    }
+
+    override fun getActionUpdateThread(): ActionUpdateThread {
+        return ActionUpdateThread.BGT
     }
 }
