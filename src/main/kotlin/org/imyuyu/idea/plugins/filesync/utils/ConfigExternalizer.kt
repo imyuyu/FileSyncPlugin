@@ -1,5 +1,6 @@
 package org.imyuyu.idea.plugins.filesync.utils
 
+import com.intellij.openapi.components.Service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.JDOMUtil
 import com.intellij.util.xmlb.XmlSerializer
@@ -14,6 +15,7 @@ import java.io.IOException
 /**
  *
  */
+@Service(Service.Level.PROJECT)
 class ConfigExternalizer protected constructor(private val project: Project) {
 
 

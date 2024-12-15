@@ -1,5 +1,6 @@
 package org.imyuyu.idea.plugins.filesync
 
+import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.impl.stores.IProjectStore
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
@@ -15,6 +16,7 @@ import org.imyuyu.idea.plugins.filesync.utils.ConfigPathsManager
 import org.imyuyu.idea.plugins.filesync.utils.ConfigStateComponent
 import java.util.*
 
+@Service(Service.Level.PROJECT)
 class FileSyncPlugin(// Current project
   @JvmField val project: Project
 ) {

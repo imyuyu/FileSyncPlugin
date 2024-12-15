@@ -19,14 +19,6 @@
   </applicationListeners>
 
   <extensions defaultExtensionNs="com.intellij">
-    <projectService
-            serviceImplementation="org.imyuyu.idea.plugins.filesync.utils.ConfigStateComponent"/>
-
-    <projectService
-            serviceImplementation="org.imyuyu.idea.plugins.filesync.utils.ConfigExternalizer" />
-
-    <projectService
-            serviceImplementation="org.imyuyu.idea.plugins.filesync.FileSyncPlugin" />
 
     <toolWindow id="FileSync"
                 anchor="bottom"

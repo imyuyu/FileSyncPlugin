@@ -2,10 +2,7 @@ package org.imyuyu.idea.plugins.filesync.utils
 
 import com.intellij.AppTopics
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.components.PersistentStateComponent
-import com.intellij.openapi.components.State
-import com.intellij.openapi.components.Storage
-import com.intellij.openapi.components.StoragePathMacros
+import com.intellij.openapi.components.*
 import com.intellij.openapi.editor.Document
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.fileEditor.FileDocumentManagerListener
@@ -17,6 +14,7 @@ import org.imyuyu.idea.plugins.filesync.model.Config
 /**
  *
  */
+@Service(Service.Level.PROJECT)
 @State(name = "FileSync", storages = [Storage(StoragePathMacros.WORKSPACE_FILE)])
 class ConfigStateComponent(private val project: Project) : PersistentStateComponent<Config> {
     private var config: Config
@@ -30,7 +28,7 @@ class ConfigStateComponent(private val project: Project) : PersistentStateCompon
         // Applies to all opened projects, which means that the same file could be synchronized multiple times across
         // different projects, which is fine
         val connection = ApplicationManager.getApplication().messageBus.connect()
-        connection.subscribe(AppTopics.FILE_DOCUMENT_SYNC,
+        connection.subscribe(FileDocumentManagerListener.TOPIC,
             object : FileDocumentManagerListener {
                 override fun beforeDocumentSaving(document: Document) {
                     // Intercepting beforeDocumentSaving event is not accurate, should rely on an "after" event to be sure the
