@@ -43,37 +43,37 @@
         class="org.imyuyu.idea.plugins.filesync.actions.toolbar.RerunLastSynchroAction"
         text="Rerun Last Synchronization"
         description="Rerun last synchronization"
-        icon="com.intellij.icons.ExpUiIcons.Run.Run">
+        icon="AllIcons.Actions.Execute">
       </action>
       <action id="FileSync.ThreadStopAction"
         class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ThreadStopAction"
         text="Stop Remote Synchronizing"
         description="Stop remote synchronizing"
-        icon="com.intellij.icons.ExpUiIcons.Run.Stop">
+        icon="AllIcons.Actions.Suspend">
       </action>
       <action id="FileSync.ThreadInterruptAction"
         class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ThreadInterruptAction"
         text="Interrupt Remote Synchronizing"
         description="Interrupt remote synchronizing"
-        icon="com.intellij.icons.ExpUiIcons.Run.Pause">
+        icon="AllIcons.Actions.Pause">
       </action>
       <action id="FileSync.ThreadResumeAction"
         class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ThreadResumeAction"
         text="Resume Remote Synchronizing"
         description="Resume remote synchronizing"
-        icon="com.intellij.icons.ExpUiIcons.Run.Resume">
+        icon="AllIcons.Actions.Resume">
       </action>
       <action id="FileSync.ConsoleClearAction"
         class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ConsoleClearAction"
         text="Clear Console"
         description="Clear console"
-        icon="com.intellij.icons.ExpUiIcons.General.Delete">
+        icon="AllIcons.Actions.GC">
       </action>
       <action id="FileSync.ConsoleRemoveAction"
         class="org.imyuyu.idea.plugins.filesync.actions.toolbar.ConsoleRemoveAction"
         text="Remove Current Tab"
         description="Remove current tab"
-        icon="com.intellij.icons.ExpUiIcons.General.Close">
+        icon="AllIcons.Actions.Close">
       </action>
     </group>
 
