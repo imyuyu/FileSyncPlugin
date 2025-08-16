@@ -37,7 +37,7 @@ class FileSyncConfigurable(private val project: Project) : SearchableConfigurabl
     }
 
     override fun createComponent(): JComponent? {
-        panel = ConfigPanel(project.getService(FileSyncPlugin::class.java))
+        panel = ConfigPanel(FileSyncPlugin.getInstance(project))
         return panel
     }
 

@@ -5,6 +5,6 @@ import com.intellij.openapi.project.ProjectManagerListener
 
 class ProjectOpenCloseListener : ProjectManagerListener {
     override fun projectClosed(project: Project) {
-        project.getService(FileSyncPlugin::class.java).projectClosed()
+        FileSyncPlugin.getInstance(project).projectClosed()
     }
 }

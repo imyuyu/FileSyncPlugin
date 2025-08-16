@@ -3,6 +3,7 @@ package org.imyuyu.idea.plugins.filesync.setting
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.options.ConfigurableProvider
 import com.intellij.openapi.project.Project
+import java.awt.GraphicsEnvironment
 
 /**
  * project configurable  provider
@@ -14,9 +15,7 @@ import com.intellij.openapi.project.Project
 class FileSyncConfigurableProvider(private val project: Project) : ConfigurableProvider() {
 
     override fun createConfigurable(): Configurable? {
-        val fileSyncConfigurable = FileSyncConfigurable(project)
-        fileSyncConfigurable.createComponent();
-        return fileSyncConfigurable;
+        return FileSyncConfigurable(project);
     }
 
 }

@@ -14,20 +14,24 @@ import javax.swing.JTextField
 
 /**/
 class TargetTabbedPane(private val pathsManager: ConfigPathsManager) : JTabbedPane() {
-    private val nameBox: NameBox
+    private val nameBox: NameBox?
 
     init {
-        nameBox = NameBox()
-        addMouseListener(object : MouseAdapter() {
-            public override fun mouseReleased(e: MouseEvent) {
-                if (e.getClickCount() == 2) {
-                    val index: Int = indexAtLocation(e.getX(), e.getY())
-                    if (index > -1) {
-                        nameBox.startEdition(index)
+        if (!GraphicsEnvironment.isHeadless()) {
+            nameBox = NameBox()
+            addMouseListener(object : MouseAdapter() {
+                public override fun mouseReleased(e: MouseEvent) {
+                    if (e.getClickCount() == 2) {
+                        val index: Int = indexAtLocation(e.getX(), e.getY())
+                        if (index > -1) {
+                            nameBox.startEdition(index)
+                        }
                     }
                 }
-            }
-        })
+            })
+        } else {
+            nameBox = null;
+        }
     }
 
     fun isModified(config: Config): Boolean {
@@ -121,7 +125,7 @@ class TargetTabbedPane(private val pathsManager: ConfigPathsManager) : JTabbedPa
         add(target.name, tab)
         val index: Int = getComponentCount() - 1
         setSelectedComponent(tab)
-        nameBox.startEdition(index)
+        nameBox!!.startEdition(index)
     }
 
     public override fun getForegroundAt(index: Int): Color {
