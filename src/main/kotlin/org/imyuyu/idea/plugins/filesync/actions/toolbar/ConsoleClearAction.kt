@@ -10,14 +10,16 @@ import org.imyuyu.idea.plugins.filesync.utils.Utils.getPlugin
  */
 class ConsoleClearAction : AnAction() {
     override fun actionPerformed(e: AnActionEvent) {
-        val currentConsole = getPlugin(e)!!.consolePane
-            .currentConsole
+        val currentConsole = getPlugin(e)!!.consolePane.currentConsole
         currentConsole.clear()
     }
 
     override fun update(e: AnActionEvent) {
         val plugin = getPlugin(e)
-        e.presentation.isEnabled = (plugin != null && !plugin.consolePane.currentConsole.isCleared)
+
+        val isEnabled = plugin != null && !plugin.consolePane.currentConsole.isCleared;
+
+        e.presentation.isEnabled = isEnabled
     }
 
     override fun getActionUpdateThread(): ActionUpdateThread {

@@ -8,6 +8,12 @@
 
 ## [Unreleased]
 
+## [1.15.4] - 2025-08-16
+
+### Added
+
+- Feature: added support for IntelliJ IDEA 2025.2.
+
 ## [1.15.3] - 2024-12-17
 
 ### Fixed
@@ -126,7 +132,8 @@
 
 - [New option "Synchronize on save"](https://github.com/syllant/idea-plugin-remotesynchronizer/issues/8)
 
-[Unreleased]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.15.3...HEAD
+[Unreleased]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.15.4...HEAD
+[1.15.4]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.15.3...v1.15.4
 [1.15.3]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.15.2...v1.15.3
 [1.15.2]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.15.1...v1.15.2
 [1.15.1]: https://github.com/imyuyu/FileSyncPlugin/compare/v1.15.0...v1.15.1

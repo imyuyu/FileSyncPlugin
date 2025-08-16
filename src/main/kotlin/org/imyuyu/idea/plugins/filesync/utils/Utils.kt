@@ -52,7 +52,7 @@ object Utils {
 
     @JvmStatic
     fun getPlugin(e: AnActionEvent): FileSyncPlugin? {
-        val project = e.getData(CommonDataKeys.PROJECT) ?: return null
+        val project = e.project ?: return null
         return getInstance(project)
     }
 

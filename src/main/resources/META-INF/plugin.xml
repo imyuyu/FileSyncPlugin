@@ -1,8 +1,10 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin url="https://github.com/imyuyu/FileSyncPlugin">
+  <id>FileSync</id>
   <name>FileSync</name>
   <vendor email="2075904@gmail.com" url="https://github.com/imyuyu">imyuyu</vendor>
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-  <!--<idea-version since-build="201"/>-->
+
   <resource-bundle>messages.Labels</resource-bundle>
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
         on how to target different products -->
